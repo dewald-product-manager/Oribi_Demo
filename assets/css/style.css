@@ -530,6 +530,12 @@ h2{font-size:clamp(1.9rem,3.6vw,3.1rem)}
   .next-up a{flex-wrap:wrap}.next-up .eyebrow-n{width:100%}
   .subnav a{padding:15px 0}
 }
+/* v4: source citations */
+.src{display:block;margin-top:8px;font-size:.74rem;font-weight:500;letter-spacing:.02em;line-height:1.5;opacity:.7;font-style:normal}
+.stat-big+h3{margin-top:14px}
+.facts a{color:var(--navy);text-decoration:underline;text-underline-offset:3px}
+.facts a:hover{color:var(--blue)}
+.navy .src{opacity:.65}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}

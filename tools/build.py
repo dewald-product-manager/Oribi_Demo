@@ -13,6 +13,7 @@ SRC = ROOT / "src"
 
 NAV = [
     ("flagship", "Flagship farm", "flagship.html"),
+    ("market", "Market", "market.html"),
     ("investors", "Investors", "investors.html"),
     ("produce", "Produce", "produce.html"),
     ("supply", "Supply", "supply.html"),
@@ -45,7 +46,7 @@ FOOTER = f'''<footer class="site-footer">
         <img class="logo" src="assets/img/oribi-wordmark-white.png" alt="Oribi">
         <p>Namibian food, made in Namibia.<br>Production and processing that replaces imports.</p>
       </div>
-      <div><h4>Explore</h4><ul><li><a href="flagship.html">Flagship farm</a></li><li><a href="investors.html">Investors</a></li><li><a href="produce.html">Produce</a></li><li><a href="about.html">About</a></li></ul></div>
+      <div><h4>Explore</h4><ul><li><a href="flagship.html">Flagship farm</a></li><li><a href="market.html">Market</a></li><li><a href="investors.html">Investors</a></li><li><a href="produce.html">Produce</a></li><li><a href="about.html">About</a></li></ul></div>
       <div><h4>Work with us</h4><ul><li><a href="supply.html">Supply enquiry</a></li><li><a href="investors.html#enquire">Partnerships and investment</a></li><li><a href="contact.html">Contact</a></li></ul></div>
       <div><h4>Head office</h4><p>Unit 4, Mandela Offices<br>Corner of Nelson Mandela and Simón Bolívar Street<br>Windhoek, Namibia</p></div>
     </div>

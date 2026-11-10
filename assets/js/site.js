@@ -216,15 +216,15 @@
   }
 
   /* ---- count-up numbers ---- */
-  function fmt(n, f) { return f === 'group' ? Math.round(n).toLocaleString('en-ZA').replace(/\s| /g, ',') : Math.round(n).toString(); }
+  function fmt(n, f, d) { if (d) return n.toFixed(d); return f === 'group' ? Math.round(n).toLocaleString('en-ZA').replace(/\s| /g, ',') : Math.round(n).toString(); }
   function runCount(el) {
-    var end = parseFloat(el.getAttribute('data-count')), f = el.getAttribute('data-format');
-    if (reduce) { el.textContent = fmt(end, f); return; }
+    var end = parseFloat(el.getAttribute('data-count')), f = el.getAttribute('data-format'), d = parseInt(el.getAttribute('data-decimals') || '0', 10);
+    if (reduce) { el.textContent = fmt(end, f, d); return; }
     var t0 = null, dur = 1900;
     function tick(t) {
       if (!t0) t0 = t;
       var p = Math.min((t - t0) / dur, 1), e = 1 - Math.pow(1 - p, 4);
-      el.textContent = fmt(end * e, f);
+      el.textContent = fmt(end * e, f, d);
       if (p < 1) requestAnimationFrame(tick);
     }
     requestAnimationFrame(tick);
