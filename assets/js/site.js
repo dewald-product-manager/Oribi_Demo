@@ -79,11 +79,13 @@
       var open = nav && nav.classList.contains('open');
       header.classList.toggle('is-hidden', y > 500 && y > lastY + 6 && !open);
       if (y < lastY - 4) header.classList.remove('is-hidden');
+      document.documentElement.classList.toggle('h-hide', header.classList.contains('is-hidden'));
     }
     lastY = y;
 
     if (fc) {
-      fc.classList.toggle('show', y > vh * 0.9 && y < doc - 500);
+      var clash = $('.cta-band, .next-up, .site-footer').some(function (el) { var r = el.getBoundingClientRect(); return r.top < vh && r.bottom > 0; });
+      fc.classList.toggle('show', y > vh * 0.9 && !clash);
     }
 
     if (!reduce) {
@@ -172,6 +174,21 @@
       entries.forEach(function (en) { if (en.isIntersecting) set(steps.indexOf(en.target)); });
     }, { rootMargin: '-42% 0px -42% 0px', threshold: 0 });
     steps.forEach(function (s) { so.observe(s); });
+  });
+
+  /* ---- chapter nav scroll-spy ---- */
+  $('.subnav').forEach(function (nv) {
+    var links = $('a[href^="#"]:not(.cta)', nv), map = [];
+    links.forEach(function (a) { var s = document.getElementById(a.getAttribute('href').slice(1)); if (s) map.push([a, s]); });
+    function spy() {
+      var cur = null, line = window.innerHeight * 0.38;
+      map.forEach(function (m) { if (m[1].getBoundingClientRect().top <= line) cur = m[0]; });
+      links.forEach(function (a) { a.classList.toggle('on', a === cur); });
+      if (cur && nv.firstElementChild.scrollWidth > nv.firstElementChild.clientWidth) {
+        var w = nv.firstElementChild; w.scrollLeft = cur.offsetLeft - 24;
+      }
+    }
+    window.addEventListener('scroll', spy, { passive: true }); spy();
   });
 
   /* ---- mobile menu ---- */

@@ -54,6 +54,12 @@ FOOTER = f'''<footer class="site-footer">
   </div>
 </footer>'''
 
+def nextup(n):
+    if not n:
+        return ""
+    return (f'<section class="next-up"><a class="wrap" href="{n["href"]}"><span class="eyebrow-n">Next</span>'
+            f'<strong>{n["title"]}</strong><span class="go">{ARROW}</span></a></section>')
+
 PAGE = """<!doctype html>
 <html lang="en-GB">
 <head>
@@ -78,6 +84,7 @@ PAGE = """<!doctype html>
 {header}
 <main id="main">
 {content}
+{nextup}
 </main>
 {footer}
 <script src="assets/js/config.js"></script>
@@ -98,7 +105,7 @@ def main():
         html = PAGE.format(
             title=meta["title"], desc=meta["desc"],
             bodyclass="page-light" if meta.get("light") else "",
-            header=header(meta.get("nav", "")), content=content, footer=FOOTER,
+            header=header(meta.get("nav", "")), content=content, footer=FOOTER, nextup=nextup(meta.get("next")),
         )
         (ROOT / f.name).write_text(html, encoding="utf-8")
         built.append(f.name)
