@@ -32,6 +32,7 @@
   var pimgs = $('.photo.px');
   var words = $('.words');
   var hs = $('.hscroll');
+  var bigs = $('.bigtext');
 
   /* split statement text into words */
   words.forEach(function (el) {
@@ -123,6 +124,18 @@
         el._w.forEach(function (w, i) { w.classList.toggle('on', i < n); });
       });
 
+      /* big type bands slide sideways with scroll */
+      bigs.forEach(function (b) {
+        var r = b.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > vh) return;
+        var p = clamp((vh - r.top) / (vh + r.height), 0, 1);
+        $('.row', b).forEach(function (row, i) {
+          var over = Math.max(0, row.scrollWidth - window.innerWidth);
+          var x = i % 2 === 0 ? -p * over : -(1 - p) * over;
+          row.style.transform = 'translate3d(' + x.toFixed(1) + 'px,0,0)';
+        });
+      });
+
       /* pinned gallery */
       hs.forEach(function (sec) {
         if (sec.classList.contains('hs-static') || sec._dist === undefined) return;
@@ -144,6 +157,22 @@
   window.addEventListener('resize', function () { sizeHS(); onScroll(); });
   window.addEventListener('load', function () { sizeHS(); frame(); });
   sizeHS(); frame();
+
+  /* ---- scrollytelling: step in view drives the sticky photo ---- */
+  $('.story').forEach(function (st) {
+    var steps = $('.story-step', st), figs = $('.story-media figure', st), cnt = $('.story-media .count', st)[0];
+    function set(i) {
+      steps.forEach(function (s, k) { s.classList.toggle('on', k === i); });
+      figs.forEach(function (f, k) { f.classList.toggle('on', k === i); });
+      if (cnt) cnt.textContent = ('0' + (i + 1)).slice(-2) + ' / ' + ('0' + steps.length).slice(-2);
+    }
+    set(0);
+    if (!('IntersectionObserver' in window)) return;
+    var so = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) set(steps.indexOf(en.target)); });
+    }, { rootMargin: '-42% 0px -42% 0px', threshold: 0 });
+    steps.forEach(function (s) { so.observe(s); });
+  });
 
   /* ---- mobile menu ---- */
   if (btn && nav) {
