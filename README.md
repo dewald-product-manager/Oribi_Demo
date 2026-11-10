@@ -20,11 +20,8 @@ Open `index.html` in a browser, or run `python3 -m http.server` in this folder.
 
 ## Demo hosting (GitHub Pages)
 
-This work lives on the `investor-demo` branch. `main` is untouched.
-
-1. Repository **Settings → Pages**
-2. Source: **Deploy from a branch**; Branch: `investor-demo`, folder `/ (root)`
-3. The demo appears at `https://<user>.github.io/Oribi/`
+The demo is served from the `main` branch of `Oribi_Demo` (Settings → Pages → Deploy from a branch → `main` / root).
+The same work is kept on the `investor-demo` branch of `Oribi`; `Oribi` `main` is untouched.
 
 ## Later: Cloudflare and the custom domain
 

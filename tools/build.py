@@ -34,7 +34,7 @@ def header(active):
       <span class="logo-solid"><img src="assets/img/oribi-icon.png" alt="" width="38" height="38"><span>ORIBI</span></span>
     </a>
     <button class="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span></button>
-    <nav class="nav" id="nav" aria-label="Main">{links}<a class="btn btn-primary" href="investors.html#enquire">Partner with us {ARROW}</a></nav>
+    <nav class="nav" id="nav" aria-label="Main">{links}<a class="btn btn-primary" href="investors.html#enquire">Investor briefing {ARROW}</a></nav>
   </div>
 </header>'''
 
@@ -42,7 +42,7 @@ FOOTER = f'''<footer class="site-footer">
   <div class="wrap">
     <div class="top">
       <div>
-        <img class="logo" src="assets/img/oribi-wordmark-tagline-white.png" alt="Oribi, sustainably farmed">
+        <img class="logo" src="assets/img/oribi-wordmark-white.png" alt="Oribi">
         <p>Namibian food, made in Namibia.<br>Production and processing that replaces imports.</p>
       </div>
       <div><h4>Explore</h4><ul><li><a href="flagship.html">Flagship farm</a></li><li><a href="investors.html">Investors</a></li><li><a href="produce.html">Produce</a></li><li><a href="about.html">About</a></li></ul></div>
@@ -64,7 +64,7 @@ PAGE = """<!doctype html>
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
 <meta property="og:type" content="website">
-<meta property="og:image" content="assets/img/hero-aerial-900.jpg">
+<meta property="og:image" content="assets/img/aerial-oblique-900.jpg">
 <meta name="theme-color" content="#00498c">
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
