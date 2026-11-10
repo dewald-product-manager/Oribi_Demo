@@ -64,7 +64,7 @@
       if (fits) { sec.style.height = ''; return; }
       var dist = Math.max(0, track.scrollWidth - window.innerWidth);
       sec._dist = dist;
-      sec.style.height = (dist + window.innerHeight * 1.15) + 'px';
+      sec.style.height = (dist * 0.7 + window.innerHeight * 1.05) + 'px';
     });
   }
 
@@ -203,8 +203,18 @@
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
   }
 
+  /* ---- dot matrix: builds the grid so the markup stays clean ---- */
+  $('[data-dots]').forEach(function (el) {
+    var on = parseInt(el.getAttribute('data-dots'), 10) || 0;
+    var total = parseInt(el.getAttribute('data-dots-total') || '100', 10);
+    var h = '';
+    for (var i = 0; i < total; i++) h += '<i' + (i < on ? ' class="on"' : '') + ' style="--i:' + i + '"></i>';
+    el.innerHTML = h;
+    el.setAttribute('aria-hidden', 'true');
+  });
+
   /* ---- reveal on scroll ---- */
-  var revealEls = $('.reveal, .reveal-img, .bars');
+  var revealEls = $('.reveal, .reveal-img, .bars, .dots');
   function show(el) { el.classList.add('in'); }
   if (reduce || !('IntersectionObserver' in window)) {
     revealEls.forEach(show);

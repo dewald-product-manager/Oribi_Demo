@@ -33,6 +33,7 @@ def header(active):
     <a class="brand" href="index.html" aria-label="Oribi home" style="min-width:180px">
       <img class="logo-white" src="assets/img/oribi-wordmark-white.png" alt="Oribi" width="124" height="34">
       <span class="logo-solid"><img src="assets/img/oribi-icon.png" alt="" width="38" height="38"><span>ORIBI</span></span>
+      <i class="brand-rule" aria-hidden="true"></i>
     </a>
     <button class="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span></button>
     <nav class="nav" id="nav" aria-label="Main">{links}<a class="btn btn-primary" href="investors.html#enquire">Investor briefing {ARROW}</a></nav>
@@ -43,7 +44,7 @@ FOOTER = f'''<footer class="site-footer">
   <div class="wrap">
     <div class="top">
       <div>
-        <img class="logo" src="assets/img/oribi-wordmark-white.png" alt="Oribi">
+        <a class="flogo" href="index.html" aria-label="Oribi home"><img class="logo" src="assets/img/oribi-wordmark-white.png" alt="Oribi"><i aria-hidden="true"></i></a>
         <p>Namibian food, made in Namibia.<br>Production and processing that replaces imports.</p>
       </div>
       <div><h4>Explore</h4><ul><li><a href="flagship.html">Flagship farm</a></li><li><a href="market.html">Market</a></li><li><a href="investors.html">Investors</a></li><li><a href="produce.html">Produce</a></li><li><a href="about.html">About</a></li></ul></div>
@@ -77,7 +78,7 @@ PAGE = """<!doctype html>
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&family=Newsreader:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Inter+Tight:wght@200;300;400;500;600&family=Newsreader:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="{bodyclass}">
