@@ -1681,3 +1681,233 @@ main p a:not([class]):hover, main li a:not([class]):hover { background: rgba(0, 
 .member:hover h3 { color: var(--navy); }
 .section.navy .member:hover h3 { color: var(--green-light); }
 .member::after, .member .spot { display: none; }
+
+/* 40 Rhythm and consistency ------------------------------------------------------------- */
+/* One button height whether or not it carries an arrow. */
+.btn { min-height: 52px; justify-content: center; }
+/* One inner padding for every card. */
+:root { --card-pad: clamp(24px, 2.6vw, 34px); }
+.card, .market, .fig-card, .press-card { padding: var(--card-pad); }
+/* On phones the method story only fades; no sideways offset pushing text to the edge. */
+@media (max-width: 860px) { .story-step { transform: none; } }
+/* Three photos on a two-column tablet grid: the third spans the row instead of sitting alone. */
+@media (max-width: 1000px) and (min-width: 621px) { .g3 > .photo:nth-child(3):last-child { grid-column: 1 / -1; aspect-ratio: 21 / 9; } }
+/* Gallery captions stay white on the photo, whatever the section colour. */
+.hs-card figcaption { color: #fff; }
+/* Phones: the eyebrow sits flush left so a wrapped line lines up under the first. */
+@media (max-width: 620px) { .eyebrow { letter-spacing: 0.16em; } .eyebrow::before { display: none; } }
+/* Section labels that wrap keep an even line gap. */
+.sec-label { line-height: 1.45; }
+/* Numbered rows: square at rest so the dividing rule runs straight; the rounded highlight only on hover. */
+.unlock li { border-radius: 0; }
+@media (hover: hover) { .unlock li:hover { border-radius: var(--card-r); } }
+/* Phones: a source sits under its figure, left aligned, instead of a squeezed right column. */
+@media (max-width: 620px) { .facts li { display: block; } .facts li > span + span { display: block; margin-top: 6px; text-align: left; font-size: 0.82rem; } }
+/* Empty error slots take no room, so every form field sits the same distance apart. */
+.form .err:empty { min-height: 0; margin-top: 0; }
+/* Small photo tiles: captions stay on one or two lines. */
+@media (max-width: 620px) { .prod-grid .photo figcaption { padding: 48px 12px 12px; font-size: 0.58rem; letter-spacing: 0.12em; } }
+/* Team names line up even when a role wraps to a second line. */
+@media (max-width: 1000px) { .member .role { min-height: calc(2 * 1.35em); display: flex; align-items: flex-end; } }
+/* Product cards: on narrower cards the pack note sits under the icon instead of wrapping beside it. */
+@media (max-width: 1000px) { .lc-top { flex-direction: column; align-items: flex-start; gap: 14px; } .lc-pack { text-align: left; } }
+/* Phones: a link that wraps keeps its arrow right after the last word. */
+@media (max-width: 620px) {
+  .clink { display: inline; }
+  .clink svg { display: inline-block; margin-left: 8px; vertical-align: -1px; }
+  .clink span { overflow-wrap: normal; word-break: normal; }
+  a.clink[href^="mailto:"] span { overflow-wrap: anywhere; }
+}
+/* Reading list: titles are whole-row links, so no inline tint behind them. */
+main .refs li a:not([class]) { padding: 0; margin: 0; background: none; border-radius: 0; transition: color 0.3s var(--ease); }
+main .refs li a:not([class]):hover { background: none; color: var(--navy); text-decoration: none; }
+/* Light cards on a dark section keep the navy link colour. */
+.section.navy :is(.article-card, .press-card, .market, .route, .line-card) .clink { color: var(--navy); }
+/* Phones: route cards put the number above the text so the text gets the full card width. */
+@media (max-width: 620px) { .route { grid-template-columns: minmax(0, 1fr); gap: 10px; } .route > * { grid-column: 1 !important; } }
+
+/* 41 Charts --------------------------------------------------------------------------------- */
+/* One chart language: rounded marks, a blue scale for imports and markets, green for what is
+   grown locally, figures set in the display face, small caps-free labels. Each chart builds once
+   as it scrolls into view and holds still afterwards. Colours flip for dark sections. */
+.viz { --v-on: var(--navy); --v-on-2: var(--blue); --v-off: rgba(14, 34, 53, 0.08); --v-ac: var(--green); --v-txt: var(--ink); --v-mut: var(--ink-2); --v-grid: rgba(14, 34, 53, 0.1); position: relative; }
+:is(.section.navy, .band, .cta-band) .viz { --v-on: #5fb2ee; --v-on-2: #9dd2fb; --v-off: rgba(255, 255, 255, 0.1); --v-ac: var(--green-light); --v-txt: #fff; --v-mut: rgba(255, 255, 255, 0.72); --v-grid: rgba(255, 255, 255, 0.12); }
+.section.navy :is(.fig-card, .why-now, .market) .viz { --v-on: var(--navy); --v-on-2: var(--blue); --v-off: rgba(14, 34, 53, 0.08); --v-ac: var(--green); --v-txt: var(--ink); --v-mut: var(--ink-2); --v-grid: rgba(14, 34, 53, 0.1); }
+
+/* waffle */
+.waffle.lg { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); align-items: center; }
+.w-grid { display: grid; grid-template-columns: repeat(var(--cols), minmax(0, 1fr)); gap: clamp(4px, 0.55vw, 7px); }
+.w-grid i { display: block; aspect-ratio: 1; border-radius: 28%; background: var(--v-off); transition: background-color 0.5s var(--ease), box-shadow 0.6s var(--ease), scale 0.6s var(--ease); transition-delay: calc(var(--i) * 9ms); }
+.waffle.in .w-grid i.on { background: linear-gradient(145deg, var(--v-on-2), var(--v-on)); }
+.waffle.in .w-grid i.ac { background: var(--v-ac); box-shadow: 0 0 0 3px color-mix(in srgb, var(--v-ac) 22%, transparent), 0 0 18px color-mix(in srgb, var(--v-ac) 45%, transparent); scale: 1.08; transition-delay: calc(var(--i) * 9ms + 0.25s); }
+.w-big { font: 200 clamp(4.2rem, 9vw, 7.6rem)/0.9 var(--display); letter-spacing: -0.05em; color: var(--v-txt); }
+.w-unit { display: block; margin-top: 10px; font: italic 400 clamp(1rem, 1.6vw, 1.3rem)/1.3 var(--serif); letter-spacing: 0; color: var(--v-mut); }
+.w-key { list-style: none; display: grid; gap: 0; margin: clamp(22px, 3vw, 34px) 0 0; padding: 0; border-top: 1px solid var(--v-grid); }
+.w-key li { display: grid; grid-template-columns: 12px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--v-grid); font-size: 0.88rem; color: var(--v-mut); }
+.w-key i { width: 12px; height: 12px; border-radius: 28%; background: var(--v-off); }
+.w-key li.on i { background: linear-gradient(145deg, var(--v-on-2), var(--v-on)); }
+.w-key li.ac i { background: var(--v-ac); }
+.w-key b { font: 300 1.15rem/1 var(--display); color: var(--v-txt); font-variant-numeric: tabular-nums; }
+.waffle.sm .w-grid { gap: 3px; }
+.waffle.sm .w-grid i { border-radius: 2px; }
+
+/* ring */
+.ring { position: relative; width: var(--rs, 132px); aspect-ratio: 1; flex: none; }
+.ring.sm { --rs: 76px; }
+.ring svg { width: 100%; height: 100%; rotate: -90deg; overflow: visible; }
+.ring circle { fill: none; stroke-width: 9; }
+.ring.sm circle { stroke-width: 11; }
+.ring .track { stroke: var(--v-off); }
+.ring .arc { stroke: var(--v-on); stroke-linecap: round; stroke-dasharray: var(--c); stroke-dashoffset: var(--c); transition: stroke-dashoffset 1.8s var(--ease) 0.15s; }
+.ring.green .arc { stroke: var(--v-ac); }
+.ring.in .arc { stroke-dashoffset: calc(var(--c) * (1 - var(--p))); }
+.r-mid { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.r-v { font: 300 1.9rem/1 var(--display); letter-spacing: -0.04em; color: var(--v-txt); }
+.r-v small { font-size: 0.5em; margin-left: 1px; opacity: 0.7; }
+.ring.sm .r-v { font-size: 1.05rem; }
+.r-l { margin-top: 4px; font-size: 0.66rem; color: var(--v-mut); }
+
+/* columns */
+.columns.lg .c-plot { display: flex; align-items: flex-end; gap: clamp(14px, 3vw, 36px); height: clamp(200px, 24vw, 280px); padding-bottom: 0; border-bottom: 1px solid var(--v-grid); }
+.c-col { position: relative; flex: 1 1 0; max-width: 150px; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; }
+.c-bar { display: block; height: 0; border-radius: 12px 12px 3px 3px; background: linear-gradient(180deg, var(--v-on-2), var(--v-on)); transition: height 1.5s var(--ease); transition-delay: calc(var(--i) * 0.18s); }
+.c-col:first-child .c-bar { background: var(--v-off); box-shadow: inset 0 0 0 1px var(--v-grid); }
+.columns.in .c-bar { height: var(--h); }
+.c-v { position: absolute; left: 0; right: 0; bottom: var(--h); padding-bottom: 10px; text-align: center; font: 300 clamp(1.5rem, 2.6vw, 2.2rem)/1 var(--display); letter-spacing: -0.03em; color: var(--v-txt); opacity: 0; translate: 0 8px; transition: opacity 0.6s var(--ease), translate 0.6s var(--ease); transition-delay: calc(var(--i) * 0.18s + 0.9s); white-space: nowrap; }
+.c-v small { margin: 0 2px; font-size: 0.42em; letter-spacing: 0; opacity: 0.7; vertical-align: 0.7em; }
+.columns.in .c-v { opacity: 1; translate: 0 0; }
+.c-axis { display: flex; gap: clamp(14px, 3vw, 36px); margin-top: 12px; }
+.c-axis span { flex: 1 1 0; max-width: 150px; text-align: center; font-size: 0.8rem; font-weight: 500; color: var(--v-txt); }
+.c-axis small { display: block; margin-top: 2px; font-size: 0.72rem; font-weight: 400; color: var(--v-mut); }
+.c-note { margin: 18px 0 0; font: italic 400 1.05rem/1.4 var(--serif); color: var(--v-mut); }
+.c-note b { font: 300 1.5rem/1 var(--display); font-style: normal; letter-spacing: -0.03em; color: var(--v-txt); margin-right: 6px; }
+.columns.sm .c-plot { display: flex; align-items: flex-end; gap: 6px; height: 54px; }
+.columns.sm .c-col { max-width: 22px; }
+.columns.sm .c-bar { border-radius: 5px 5px 2px 2px; }
+
+/* step line */
+.stepline { padding-left: 38px; color: var(--v-on); }
+.s-plot { position: relative; height: clamp(220px, 26vw, 300px); }
+.s-tick { position: absolute; left: 0; right: 0; height: 0; border-top: 1px dashed var(--v-grid); }
+.s-tick em { position: absolute; right: calc(100% + 10px); top: -0.6em; font: 500 0.7rem/1 var(--font); font-style: normal; color: var(--v-mut); white-space: nowrap; }
+.stepline svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.s-line { fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 2s var(--ease-io) 0.2s; }
+.s-area { opacity: 0; transition: opacity 1.2s var(--ease) 1.2s; }
+.stepline.in .s-line { stroke-dashoffset: 0; }
+.stepline.in .s-area { opacity: 1; }
+.s-pt { position: absolute; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 50%; background: var(--paper); box-shadow: 0 0 0 2.5px currentColor; scale: 0; transition: scale 0.5s var(--ease); transition-delay: calc(0.3s + var(--i) * 0.3s); }
+.section.navy .s-pt, .band .s-pt { background: var(--navy-ink); }
+.s-pt.last { background: var(--v-ac); box-shadow: 0 0 0 2.5px var(--v-ac), 0 0 0 9px color-mix(in srgb, var(--v-ac) 22%, transparent); }
+.stepline.in .s-pt { scale: 1; }
+.s-pt b { position: absolute; left: 50%; bottom: calc(100% + 10px); translate: -50% 0; font: 400 0.95rem/1 var(--display); letter-spacing: -0.02em; color: var(--v-txt); white-space: nowrap; }
+.s-pt.last b { font-size: 1.5rem; font-weight: 300; color: var(--v-txt); }
+.s-axis { position: relative; height: 1.4em; margin-top: 12px; }
+.s-axis span { position: absolute; translate: -50% 0; font-size: 0.74rem; font-weight: 500; color: var(--v-mut); white-space: nowrap; }
+
+/* stack */
+.st-total { margin-bottom: 18px; font: 200 clamp(3rem, 6vw, 4.8rem)/1 var(--display); letter-spacing: -0.045em; color: var(--v-txt); }
+.st-total small { margin: 0 0.12em; font-size: 0.32em; font-weight: 500; letter-spacing: 0; vertical-align: 0.9em; opacity: 0.65; }
+.st-bar { display: flex; gap: 4px; height: 18px; }
+.st-bar span { width: 0; border-radius: 6px; transition: width 1.3s var(--ease); transition-delay: calc(var(--i) * 0.15s); }
+.stack.in .st-bar span { width: var(--w); }
+.stack .t0 { --sc: #9dd2fb; } .stack .t1 { --sc: #5fb2ee; } .stack .t2 { --sc: #1a8fe0; } .stack .t3 { --sc: var(--green-light); }
+.st-bar span, .st-key i { background: var(--sc); }
+.st-key { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 clamp(16px, 2.4vw, 32px); margin: 26px 0 0; padding: 0; }
+.st-key li { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: baseline; gap: 6px 10px; padding-top: 16px; border-top: 1px solid var(--v-grid); opacity: 0; translate: 0 10px; transition: opacity 0.6s var(--ease), translate 0.6s var(--ease); transition-delay: calc(0.6s + var(--i) * 0.12s); }
+.stack.in .st-key li { opacity: 1; translate: 0 0; }
+.st-key i { width: 10px; height: 10px; border-radius: 3px; translate: 0 -2px; }
+.st-v { font: 300 clamp(1.6rem, 2.6vw, 2.2rem)/1 var(--display); letter-spacing: -0.03em; color: var(--v-txt); }
+.st-v small { margin: 0 2px; font-size: 0.42em; letter-spacing: 0; vertical-align: 0.8em; opacity: 0.65; }
+.st-l { grid-column: 2; font-size: 0.88rem; color: var(--v-mut); }
+.st-p { grid-column: 2; font: 600 0.7rem/1 var(--font); letter-spacing: 0.14em; color: var(--v-ac); }
+
+/* small charts inside figure cards */
+.fig .viz.mini { margin: 4px 0 18px; }
+.fig-viz { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; }
+
+@media (max-width: 860px) {
+  .waffle.lg { grid-template-columns: minmax(0, 1fr); }
+  .st-key { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 20px; }
+}
+@media (max-width: 620px) {
+  .stepline { padding-left: 32px; }
+  .s-pt b { font-size: 0.78rem; }
+  .s-pt.last b { font-size: 1.15rem; }
+  .s-axis span { font-size: 0.66rem; }
+  .s-axis span:nth-child(2), .s-axis span:nth-child(3) { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .viz *, .viz *::before { transition: none !important; }
+}
+@media (max-width: 620px) { .s-pt:not(.first):not(.last) b { display: none; } }
+.stack.mini .st-bar { height: 12px; gap: 3px; }
+.stack.mini .st-bar span { border-radius: 4px; }
+/* A small chart heads each figure; one fixed height so the numbers below line up across a row. */
+.fig > .viz:first-child { display: flex; align-items: flex-end; height: 76px; margin-bottom: 20px; }
+.fig > .ring.sm:first-child { display: block; width: 76px; }
+.fig > .waffle.sm:first-child .w-grid { width: min(100%, 168px); }
+.fig > .columns.sm:first-child .c-plot { width: 100%; }
+.fig > .stack.mini:first-child { width: min(100%, 220px); }
+.fig > .stack.mini:first-child .st-bar { width: 100%; }
+.columns.lg { padding-top: 56px; }
+.columns.sm .c-plot { gap: 8px; height: 76px; }
+.columns.sm .c-col { max-width: 34px; }
+.columns.sm .c-bar { border-radius: 7px 7px 2px 2px; }
+.ring.sm { --rs: 72px; }
+/* figures without a chart in a row that has charts keep the same top line */
+@media (min-width: 621px) { .figs:has(> .fig > .viz:first-child) > .fig:not(:has(> .viz:first-child))::before { content: ""; display: block; height: 96px; } }
+/* range band */
+.range { width: min(100%, 220px); height: 40px; }
+.rg-track { position: absolute; left: 0; right: 0; top: 8px; height: 12px; border-radius: 999px; background: var(--v-off); }
+.rg-band { position: absolute; top: 8px; left: var(--a); width: 0; height: 12px; border-radius: 999px; background: linear-gradient(90deg, var(--v-on-2), var(--v-on)); transition: width 1.4s var(--ease) 0.2s; }
+.range.in .rg-band { width: calc(var(--b) - var(--a)); }
+.rg-ticks em { position: absolute; top: 26px; translate: -50% 0; font: 500 0.66rem/1 var(--font); font-style: normal; color: var(--v-mut); }
+.rg-ticks em:first-child { translate: 0 0; } .rg-ticks em:last-child { translate: -100% 0; }
+/* a chart slot above a big statistic, fixed height so a row of statistics lines up */
+.stat-viz { display: flex; align-items: flex-end; height: 76px; margin-bottom: 22px; }
+.stat-viz .waffle.sm .w-grid { width: var(--ww, 150px); }
+/* the line is revealed left to right with a clip, which stays exact at any aspect ratio */
+.s-line { stroke-dasharray: none; stroke-dashoffset: 0; transition: none; }
+.stepline svg { clip-path: inset(-20px 100% -20px -20px); transition: clip-path 2s var(--ease-io) 0.2s; }
+.stepline.in svg { clip-path: inset(-20px -20px -20px -20px); }
+.s-area { opacity: 1; transition: none; }
+@media (max-width: 860px) { .waffle.lg .w-grid { max-width: 300px; } }
+/* Publication finish: flat fills, small radii, no glows; colour carries the meaning, nothing else. */
+.w-grid i { border-radius: 2px; }
+.waffle.in .w-grid i.on, .w-key li.on i { background: var(--v-on); }
+.waffle.in .w-grid i.ac { box-shadow: none; scale: 1; }
+.w-key i { border-radius: 2px; }
+.c-bar { border-radius: 3px 3px 0 0; background: var(--v-on); }
+.columns.sm .c-bar { border-radius: 2px 2px 0 0; }
+.rg-band { background: var(--v-on); }
+.rg-track, .rg-band { border-radius: 2px; height: 10px; }
+.st-bar { gap: 2px; height: 14px; }
+.st-bar span { border-radius: 2px; }
+.st-key i { border-radius: 2px; }
+.s-pt { width: 9px; height: 9px; margin: -4.5px 0 0 -4.5px; box-shadow: 0 0 0 2px currentColor; }
+.s-pt.last { background: var(--v-on); box-shadow: 0 0 0 2px var(--v-on); }
+.s-line { stroke-width: 2; }
+.ring .arc { stroke-linecap: butt; }
+.ring circle { stroke-width: 8; }
+.ring.sm circle { stroke-width: 10; }
+:is(.section.navy, .band) .viz .c-col:first-child .c-bar { background: rgba(255, 255, 255, 0.18); box-shadow: none; }
+.c-col:first-child .c-bar { background: rgba(14, 34, 53, 0.14); box-shadow: none; }
+/* Charts sit quietly beside the copy: shorter columns, smaller marks in figure cards. */
+.columns.lg .c-plot { height: clamp(150px, 16vw, 200px); }
+.columns.lg { padding-top: 44px; max-width: 420px; }
+.c-col, .c-axis span { max-width: 110px; }
+.c-v { font-size: clamp(1.3rem, 2vw, 1.7rem); }
+.fig > .viz:first-child, .stat-viz { height: 56px; margin-bottom: 18px; }
+.fig > .ring.sm:first-child, .ring.sm { --rs: 56px; width: 56px; }
+.columns.sm .c-plot { height: 56px; }
+.columns.sm .c-col { max-width: 26px; }
+@media (min-width: 621px) { .figs:has(> .fig > .viz:first-child) > .fig:not(:has(> .viz:first-child))::before { height: 74px; } }
+.waffle.lg .w-grid { max-width: 340px; }
+.w-big { font-size: clamp(3.6rem, 7vw, 6rem); }
+.viz, .stat-big, .fig .v { font-variant-numeric: tabular-nums lining-nums; }
+@media (max-width: 620px) { .waffle.lg .w-grid { max-width: 250px; } }
+.stat-viz .waffle.sm .w-grid { gap: 2px; }
+.s-axis span:first-child { translate: 0 0; } .s-axis span:last-child { translate: -100% 0; }
+.s-pt.last b { left: auto; right: -4px; translate: 0 0; } .s-pt.first b { left: -4px; translate: 0 0; }
+/* Lists of varieties read as a sentence: a comma after each item, so a wrapped line never ends on a stray dot. */
+.chips li:not(:last-child)::after { content: ","; margin: 0 0.45em 0 0; color: inherit; }
