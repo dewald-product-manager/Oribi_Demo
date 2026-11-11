@@ -2273,12 +2273,107 @@ main#main { animation: page-in 0.7s var(--ease) both; }
 .hz-img { position: absolute; inset: -6% 0 0 0; }
 .hz-img img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 62%; -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.25) 22%, rgba(0, 0, 0, 0.75) 40%, #000 55%); mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.25) 22%, rgba(0, 0, 0, 0.75) 40%, #000 55%); }
 .horizon::after { content: ""; position: absolute; inset: auto 0 0 0; height: 46%; background: linear-gradient(180deg, rgba(4, 32, 61, 0) 0%, rgba(4, 32, 61, 0.35) 45%, rgba(4, 32, 61, 0.85) 82%, var(--navy-ink) 100%); pointer-events: none; }
-.horizon.land-quiver-dusk { background: linear-gradient(180deg, #f3f0e9 0%, #efe3d6 30%, #e8b98f 70%, #d98a4c 100%); }
-.horizon.land-quiver-dusk .hz-img img { object-position: 50% 70%; }
-.horizon.land-plains { background: linear-gradient(180deg, #f3f0e9 0%, #f1ede4 40%, #f0ead9 100%); }
-.horizon.land-deadvlei .hz-img img { object-position: 50% 80%; }
 .next-up { border-bottom: 0; }
 .site-footer { background: var(--grain), radial-gradient(900px 480px at 100% 0%, rgba(26, 143, 224, 0.2), transparent 62%), radial-gradient(700px 400px at 0% 100%, rgba(109, 181, 42, 0.1), transparent 62%), linear-gradient(180deg, var(--navy-ink) 0%, var(--navy-deep) 100%); }
 /* the footer picks up exactly where the horizon's shade ends */
 .site-footer { background: var(--grain), radial-gradient(900px 520px at 100% 70%, rgba(26, 143, 224, 0.16), transparent 62%), radial-gradient(700px 400px at 0% 100%, rgba(109, 181, 42, 0.1), transparent 62%), linear-gradient(180deg, var(--navy-ink) 0%, var(--navy-ink) 18%, var(--navy-deep) 100%); }
 .horizon::after { background: linear-gradient(180deg, rgba(4, 32, 61, 0) 0%, rgba(4, 32, 61, 0.3) 40%, rgba(4, 32, 61, 0.8) 78%, var(--navy-ink) 100%), var(--grain); background-blend-mode: normal; }
+
+/* 67 Horizon v2: the land stands in the "Next" section's own sky -------------------------- */
+/* The photographs have had their skies removed. The section above simply carries on downward,
+   warming into a pale desert haze where the land meets it; the ground then sinks into brand navy. */
+.next-up { background: linear-gradient(180deg, var(--paper) 0%, #f5f2ec 100%); }
+.horizon { height: auto; margin-top: -1px; background: linear-gradient(180deg, #f5f2ec 0%, #f4efe7 35%, #f1e7da 70%, #eedfcc 100%); }
+.horizon::before { content: ""; position: absolute; inset: 0; z-index: 0; background: radial-gradient(60% 50% at 50% 100%, rgba(255, 228, 196, 0.55), transparent 70%); pointer-events: none; }
+.horizon .hz-img { display: none; }
+.hz-land { position: relative; z-index: 1; display: block; width: 100%; height: auto; margin-top: clamp(-40px, -3vw, -10px); }
+.horizon::after { z-index: 2; height: 40%; background: linear-gradient(180deg, rgba(4, 32, 61, 0) 0%, rgba(4, 32, 61, 0.22) 30%, rgba(4, 32, 61, 0.7) 70%, var(--navy-ink) 100%); }
+@media (max-width: 860px) { .hz-land { width: 180%; margin-left: -40%; } }
+
+/* 68 Floating invitation v2 --------------------------------------------------------------- */
+/* Calm by default, and on hover everything moves together on one long, soft curve: the pill lifts a
+   couple of pixels, a green light rises behind the arrow, the arrow button warms to green. No fills,
+   no colour inversion, nothing that snaps. */
+:root { --fc-ease: cubic-bezier(0.22, 1, 0.36, 1); }
+.float-cta { gap: 16px; padding: 6px 6px 6px 20px; border: 1px solid rgba(255, 255, 255, 0.14); background: linear-gradient(135deg, rgba(4, 32, 61, 0.95) 0%, rgba(4, 44, 84, 0.94) 60%, rgba(0, 63, 122, 0.93) 100%); box-shadow: 0 18px 40px -18px rgba(3, 26, 49, 0.55), 0 2px 6px rgba(3, 26, 49, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: opacity 0.6s var(--fc-ease), transform 0.6s var(--fc-ease), visibility 0s linear 0.6s, translate 0.7s var(--fc-ease), box-shadow 0.7s var(--fc-ease), border-color 0.7s var(--fc-ease); }
+.float-cta.show { transition: opacity 0.6s var(--fc-ease), transform 0.6s var(--fc-ease), visibility 0s, translate 0.7s var(--fc-ease), box-shadow 0.7s var(--fc-ease), border-color 0.7s var(--fc-ease); }
+.float-cta::before { inset: -40% -10% -40% 35%; right: auto; top: auto; width: auto; height: auto; margin: 0; border-radius: 50%; background: radial-gradient(closest-side, rgba(184, 224, 140, 0.32), transparent 72%); transform: none; opacity: 0; transition: opacity 0.8s var(--fc-ease); }
+.float-cta:hover::before { transform: none; opacity: 1; }
+.float-cta:hover { translate: 0 -2px; border-color: rgba(184, 224, 140, 0.35); box-shadow: 0 26px 50px -20px rgba(3, 26, 49, 0.6), 0 2px 8px rgba(3, 26, 49, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.1); }
+.fc-text { color: #fff; font: 500 0.86rem/1.2 var(--font); }
+.fc-text small { color: rgba(255, 255, 255, 0.62); }
+.float-cta:hover .fc-text { color: #fff; }
+.float-cta:hover .fc-text small { color: rgba(255, 255, 255, 0.8); }
+.float-cta:hover .fc-live { background: var(--green-light); }
+.fc-go { width: 42px; height: 42px; background: #fff; color: var(--navy-ink); transition: background-color 0.7s var(--fc-ease), color 0.7s var(--fc-ease); }
+.fc-go svg { transition: transform 0.7s var(--fc-ease); }
+.float-cta:hover .fc-go { background: var(--green-light); color: var(--navy-ink); }
+.float-cta:hover .fc-go svg { animation: none; transform: translateX(3px); }
+.fc-text, .fc-text small { transition: color 0.7s var(--fc-ease); }
+
+/* 69 Distance card in motion -------------------------------------------------------------- */
+/* After the first draw the two journeys keep replaying side by side on one shared clock: the
+   Okahandja load arrives almost at once and waits; the Johannesburg truck is still on the road. */
+@media (prefers-reduced-motion: no-preference) {
+  .distance.in .dist-route.far .truck { animation: run-far 6s cubic-bezier(0.45, 0, 0.2, 1) 2.6s infinite; }
+  .distance.in .dist-route.near .truck { animation: run-near 6s cubic-bezier(0.45, 0, 0.2, 1) 2.6s infinite; }
+  .distance.in .dist-route.far .trail { animation: trail-far 6s cubic-bezier(0.45, 0, 0.2, 1) 2.6s infinite; }
+  .distance.in .dist-route.near .trail { animation: trail-near 6s cubic-bezier(0.45, 0, 0.2, 1) 2.6s infinite; }
+  .distance.in .dist-route.far .end::after { animation: arrive-far 6s var(--ease) 2.6s infinite; }
+  .distance.in .dist-route.near .end::after { animation: arrive-near 6s var(--ease) 2.6s infinite; }
+  .distance.in .dist-route.near { animation: near-glow 6s var(--ease) 2.6s infinite; }
+}
+@keyframes run-far { 0% { left: var(--from); opacity: 0; } 5% { opacity: 1; } 78% { left: 100%; opacity: 1; } 90%, 100% { left: 100%; opacity: 0; } }
+@keyframes run-near { 0% { left: var(--from); opacity: 0; } 4% { opacity: 1; } 14% { left: 100%; opacity: 1; } 90% { left: 100%; opacity: 1; } 100% { left: 100%; opacity: 0; } }
+@keyframes trail-far { 0% { width: 0; opacity: 0; } 6% { opacity: 0.55; } 78% { width: calc(100% - var(--from)); opacity: 0.55; } 92%, 100% { width: calc(100% - var(--from)); opacity: 0; } }
+@keyframes trail-near { 0% { width: 0; opacity: 0; } 5% { opacity: 0.55; } 14% { width: calc(100% - var(--from)); opacity: 0.55; } 90% { opacity: 0.55; } 100% { width: calc(100% - var(--from)); opacity: 0; } }
+@keyframes arrive-far { 0%, 76% { opacity: 0; transform: scale(1); } 80% { opacity: 0.9; } 96%, 100% { opacity: 0; transform: scale(2.6); } }
+@keyframes arrive-near { 0%, 12% { opacity: 0; transform: scale(1); } 16% { opacity: 0.9; } 32%, 100% { opacity: 0; transform: scale(2.6); } }
+@keyframes near-glow { 0%, 12% { background-color: rgba(109, 181, 42, 0.07); } 20% { background-color: rgba(109, 181, 42, 0.14); } 40%, 100% { background-color: rgba(109, 181, 42, 0.07); } }
+
+/* 70 Produce lines: editorial card text ---------------------------------------------------- */
+.line-card { gap: 0; }
+.line-card .lc-top { margin-bottom: 20px; }
+.line-card h3 { margin: 0; font-family: var(--display); font-size: clamp(1.35rem, 1.9vw, 1.65rem); font-weight: 400; letter-spacing: -0.02em; line-height: 1.15; }
+.lc-meta { margin: 8px 0 0; font: italic 400 1.02rem/1.4 var(--serif); color: var(--green-ink); }
+.lc-meta span { margin-right: 8px; font: 600 0.68rem/1 var(--font); font-style: normal; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3); vertical-align: 0.1em; }
+.line-card > p:not(.lc-meta), .lc-body > p:not(.lc-meta) { margin: 14px 0 0; color: var(--ink-2); line-height: 1.6; }
+.lc-label { display: block; margin-top: 22px; padding-top: 16px; border-top: 1px solid var(--line); font: 600 0.68rem/1 var(--font); letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3); }
+.lc-list { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 18px; margin: 12px 0 0; padding: 0; }
+.line-card.feature .lc-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.lc-list li { position: relative; padding-left: 14px; font-size: 0.95rem; line-height: 1.35; color: var(--ink); }
+.lc-list li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 6px; height: 1.5px; border-radius: 1px; background: var(--green); }
+@media (max-width: 620px) { .line-card.feature .lc-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* 71 Supply markets: one premium card for both groups --------------------------------------- */
+.m-group .market, .m-group + .m-group .market { position: relative; isolation: isolate; overflow: hidden; gap: 12px; min-height: 100%; padding: clamp(26px, 2.8vw, 36px); border: 0; border-radius: calc(var(--card-r) + 2px); background: linear-gradient(160deg, #ffffff 0%, #fbfaf6 60%, #f2f6f9 100%); box-shadow: 0 1px 2px rgba(3, 26, 49, 0.04), 0 24px 50px -34px rgba(0, 0, 0, 0.55); }
+.m-group .market::before { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(420px 200px at 100% 0%, rgba(26, 143, 224, 0.14), transparent 70%), radial-gradient(360px 180px at 0% 100%, rgba(109, 181, 42, 0.12), transparent 70%); opacity: 0; transition: opacity 0.7s var(--ease); }
+@media (hover: hover) { .m-group .market:hover::before { opacity: 1; } }
+.m-group .market h3, .section.navy .m-group + .m-group .market h3 { color: var(--ink); }
+.m-group .market p, .section.navy .m-group + .m-group .market.market p { color: var(--ink-2); }
+.m-n, .m-group + .m-group .m-n { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 18px; font: 300 1.6rem/1 var(--display); letter-spacing: -0.03em; color: var(--blue); }
+.m-group + .m-group .m-n { color: var(--ink-3); }
+.m-head { font-size: 0.74rem; }
+
+/* 72 Editorial article text ----------------------------------------------------------------- */
+.prose { max-width: 66ch; font-family: var(--serif); font-size: clamp(1.1rem, 1.25vw, 1.2rem); line-height: 1.72; color: rgba(14, 34, 53, 0.86); hanging-punctuation: first; }
+.prose p { margin: 0 0 1.15em; }
+.prose p.first { font-size: clamp(1.3rem, 1.8vw, 1.5rem); line-height: 1.55; color: var(--ink); }
+.prose p.first::first-letter { float: left; margin: 0.08em 0.12em 0 0; font: 300 3.4em/0.82 var(--display); letter-spacing: -0.04em; color: var(--navy); }
+.prose h2 { margin: 2.2em 0 0.55em; font-family: var(--display); font-size: clamp(1.45rem, 2.1vw, 1.85rem); font-weight: 400; letter-spacing: -0.022em; line-height: 1.2; color: var(--ink); }
+.prose blockquote { position: relative; margin: 2.4em 0; padding: 0.4em 0 0.4em clamp(28px, 3vw, 40px); border-left: 0; font: italic 400 clamp(1.45rem, 2.2vw, 1.9rem)/1.32 var(--serif); color: var(--navy); }
+.prose blockquote::before { content: ""; position: absolute; left: 0; top: 0.35em; bottom: 0.35em; width: 2px; border-radius: 2px; background: linear-gradient(180deg, var(--blue), var(--green)); }
+.article-sources { margin-top: 3em; padding-top: 1.6em; border-top: 1px solid var(--line); font-family: var(--font); font-size: 0.9rem; line-height: 1.6; }
+.article-sources h2 { margin-top: 0; font-size: 1.05rem; font-weight: 500; letter-spacing: 0; }
+.article-sources a { text-decoration: none; color: var(--ink-2); transition: color 0.3s var(--ease); }
+.article-sources a:hover { color: var(--navy); }
+/* information paragraphs across the site read as edited text: balanced widths and no orphans */
+.p-head p, .section p.lead, .section .muted, .ac-sum, .route-card .ac-sum, .m-group .market p, .stepper p, .unlock p { text-wrap: pretty; hyphens: manual; }
+.p-head p { max-width: 52ch; line-height: 1.65; }
+.line-card:not(.feature) .lc-list { grid-template-columns: repeat(auto-fill, minmax(124px, 1fr)); gap: 7px 14px; }
+@media (max-width: 860px) { .hz-land { max-width: none; width: 170%; margin-left: -35%; } }
+.nav .btn { border-radius: 14px; }
+/* the land never ends in a hard vertical edge: its sides dissolve into the same sky */
+.hz-land { -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.6) 6%, #000 16%, #000 84%, rgba(0,0,0,0.6) 94%, transparent 100%); mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.6) 6%, #000 16%, #000 84%, rgba(0,0,0,0.6) 94%, transparent 100%); }
+@media (max-width: 860px) { .hz-land { width: 124%; margin-left: -12%; } }
