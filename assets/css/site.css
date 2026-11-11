@@ -984,7 +984,7 @@ section { position: relative; }
 @media (hover: hover) and (pointer: fine) {
   html { cursor: url("./cursor/pointer.svg") 2 1, url("./cursor/pointer.png") 2 1, auto; }
   a, button, label, select, summary, [role="button"], .menu-btn {
-    cursor: url("./cursor/pointer-hover.svg") 8 7, url("./cursor/pointer-hover.png") 8 7, pointer;
+    cursor: url("./cursor/pointer-active.svg") 2 1, url("./cursor/pointer-active.png") 2 1, pointer;
   }
   input, textarea { cursor: text; }
   html.pressing, html.pressing * { cursor: url("./cursor/pointer-active.svg") 2 1, url("./cursor/pointer-active.png") 2 1, auto !important; }
@@ -1324,20 +1324,20 @@ a, button, summary, label { -webkit-tap-highlight-color: transparent; touch-acti
 
 /* 27 Grain, on dark surfaces only ------------------------------------------------------ */
 /* A fine light grain over a soft blue glow, the same on every dark surface; never on paper or white. */
-.section.navy { background: url("./texture/grain-light.png") 0 0 / 180px 180px repeat, radial-gradient(1100px 560px at 88% -12%, rgba(26, 143, 224, 0.3), transparent 62%), radial-gradient(900px 520px at 0% 110%, rgba(109, 181, 42, 0.1), transparent 60%), var(--navy-ink); }
-.hscroll { background: url("./texture/grain-light.png") 0 0 / 180px 180px repeat, radial-gradient(1000px 600px at 90% 0%, rgba(26, 143, 224, 0.22), transparent 62%), var(--navy-deep); }
-.site-footer { background: url("./texture/grain-light.png") 0 0 / 180px 180px repeat, radial-gradient(900px 480px at 100% 0%, rgba(26, 143, 224, 0.18), transparent 62%), var(--navy-deep); }
-.distance { background: url("./texture/grain-light.png") 0 0 / 180px 180px repeat, radial-gradient(600px 320px at 100% 0%, rgba(26, 143, 224, 0.3), transparent 70%), radial-gradient(420px 260px at 0% 100%, rgba(109, 181, 42, 0.14), transparent 70%), var(--navy-ink); }
-.cta-band { background: url("./texture/grain-light.png") 0 0 / 180px 180px repeat, radial-gradient(520px 320px at 100% 0%, rgba(109, 181, 42, 0.2), transparent 70%), linear-gradient(120deg, var(--navy-ink), #0a4f8f); }
-.hero::after { background: url("./texture/grain-light.png") 0 0 / 180px 180px repeat, linear-gradient(180deg, rgba(3, 26, 49, 0.7) 0%, rgba(3, 26, 49, 0.28) 28%, rgba(3, 26, 49, 0.5) 62%, rgba(3, 26, 49, 0.92) 100%), linear-gradient(90deg, rgba(3, 26, 49, 0.62), transparent 64%); }
-.page-hero.has-img::after { background: url("./texture/grain-light.png") 0 0 / 180px 180px repeat, linear-gradient(180deg, rgba(3, 26, 49, 0.82), rgba(3, 26, 49, 0.6) 50%, rgba(3, 26, 49, 0.92)), linear-gradient(90deg, rgba(3, 26, 49, 0.55), transparent 70%); }
-.band::after { background: url("./texture/grain-light.png") 0 0 / 180px 180px repeat, linear-gradient(90deg, rgba(3, 26, 49, 0.94), rgba(3, 26, 49, 0.62) 58%, rgba(3, 26, 49, 0.3)); }
+.section.navy { background: url("./texture/grain-fine.png") 0 0 / 128px 128px repeat, radial-gradient(1100px 560px at 88% -12%, rgba(26, 143, 224, 0.3), transparent 62%), radial-gradient(900px 520px at 0% 110%, rgba(109, 181, 42, 0.1), transparent 60%), var(--navy-ink); }
+.hscroll { background: url("./texture/grain-fine.png") 0 0 / 128px 128px repeat, radial-gradient(1000px 600px at 90% 0%, rgba(26, 143, 224, 0.22), transparent 62%), var(--navy-deep); }
+.site-footer { background: url("./texture/grain-fine.png") 0 0 / 128px 128px repeat, radial-gradient(900px 480px at 100% 0%, rgba(26, 143, 224, 0.18), transparent 62%), var(--navy-deep); }
+.distance { background: url("./texture/grain-fine.png") 0 0 / 128px 128px repeat, radial-gradient(600px 320px at 100% 0%, rgba(26, 143, 224, 0.3), transparent 70%), radial-gradient(420px 260px at 0% 100%, rgba(109, 181, 42, 0.14), transparent 70%), var(--navy-ink); }
+.cta-band { background: url("./texture/grain-fine.png") 0 0 / 128px 128px repeat, radial-gradient(520px 320px at 100% 0%, rgba(109, 181, 42, 0.2), transparent 70%), linear-gradient(120deg, var(--navy-ink), #0a4f8f); }
+.hero::after { background: url("./texture/grain-fine.png") 0 0 / 128px 128px repeat, linear-gradient(180deg, rgba(3, 26, 49, 0.7) 0%, rgba(3, 26, 49, 0.28) 28%, rgba(3, 26, 49, 0.5) 62%, rgba(3, 26, 49, 0.92) 100%), linear-gradient(90deg, rgba(3, 26, 49, 0.62), transparent 64%); }
+.page-hero.has-img::after { background: url("./texture/grain-fine.png") 0 0 / 128px 128px repeat, linear-gradient(180deg, rgba(3, 26, 49, 0.82), rgba(3, 26, 49, 0.6) 50%, rgba(3, 26, 49, 0.92)), linear-gradient(90deg, rgba(3, 26, 49, 0.55), transparent 70%); }
+.band::after { background: url("./texture/grain-fine.png") 0 0 / 128px 128px repeat, linear-gradient(90deg, rgba(3, 26, 49, 0.94), rgba(3, 26, 49, 0.62) 58%, rgba(3, 26, 49, 0.3)); }
 
 /* 28 Sky and land ---------------------------------------------------------------------- */
 /* The problem section fades into a soft sky; the farm, cut out along its horizon, rises out of it. */
 :root { --sky: #d4e6f4; }
 .section.sky-fade { padding-bottom: clamp(56px, 7vw, 96px); background: linear-gradient(180deg, var(--paper) 0%, var(--paper) 46%, #e9f2f9 74%, var(--sky) 100%); }
-.land { position: relative; overflow: hidden; background: linear-gradient(180deg, var(--sky) 0%, #dcebf6 30%, #e8f1f8 100%); }
+.land { position: relative; overflow: hidden; background: linear-gradient(180deg, var(--sky) 0%, #a7cbe9 22%, #8bbce6 46%, #8bbce6 100%); }
 .land-text { position: relative; z-index: 2; padding-top: clamp(8px, 2vw, 24px); }
 .land-text .sec-label { color: var(--navy); }
 .land .q { max-width: 26ch; margin: 0; font-family: var(--display); font-size: clamp(1.7rem, 3.4vw, 3rem); font-weight: 300; line-height: 1.18; letter-spacing: -0.03em; color: var(--navy-ink); }
@@ -1535,7 +1535,7 @@ a, button, summary, label { -webkit-tap-highlight-color: transparent; touch-acti
     .photo.cine, .photo.pano, .photo.wide { animation: photo-in linear both; animation-timeline: view(); animation-range: entry 0% cover 40%; }
   }
 }
-@keyframes sheet-in { from { transform: translate3d(0, 40px, 0) scale(0.955); } to { transform: none; } }
+@keyframes sheet-in { from { transform: translate3d(0, 28px, 0); } to { transform: none; } }
 @keyframes band-in { from { transform: scale(0.94); opacity: 0.5; } to { transform: none; opacity: 1; } }
 @keyframes photo-in { from { transform: scale(0.92); } to { transform: none; } }
 @media (max-width: 860px) { .section.navy, .hscroll { margin-top: -22px; border-radius: 22px 22px 0 0; } }
@@ -1546,16 +1546,16 @@ main p a:not([class]):hover, main li a:not([class]):hover { background: rgba(0, 
 .section.navy p a:not([class]):hover { background: rgba(184, 224, 140, 0.2); }
 .dist-head strong { white-space: nowrap; }
 .dist-head span { min-width: 0; }
-.land-img { margin-top: clamp(-30px, -1.5vw, 0px); }
+.land-img { margin-top: calc(-1 * clamp(40px, 16vw, 280px)); }
 .land-text { padding-bottom: clamp(10px, 2vw, 28px); }
 .press-card { min-height: 210px; }
 
 /* 35 Abstract backdrops, used subtly ------------------------------------------------------ */
 /* Pre-blended into the brand navy (or paper), so they read as a soft contour, never as a picture. */
-.section.navy { background: url("./texture/grain-light.png") 0 0 / 180px 180px repeat, linear-gradient(180deg, rgba(4, 32, 61, 0.55), rgba(4, 32, 61, 0.2) 40%, rgba(4, 32, 61, 0.65)), url("./texture/abstract-navy.jpg") center / cover no-repeat, var(--navy-ink); }
-.distance { background: url("./texture/grain-light.png") 0 0 / 180px 180px repeat, linear-gradient(160deg, rgba(4, 32, 61, 0.3), rgba(4, 32, 61, 0.75)), url("./texture/abstract-navy.jpg") 70% 40% / cover no-repeat, var(--navy-ink); }
-.cta-band { background: url("./texture/grain-light.png") 0 0 / 180px 180px repeat, linear-gradient(110deg, rgba(4, 32, 61, 0.92) 30%, rgba(4, 32, 61, 0.35)), url("./texture/abstract-teal.jpg") center / cover no-repeat, var(--navy-ink); }
-.site-footer { background: url("./texture/grain-light.png") 0 0 / 180px 180px repeat, linear-gradient(180deg, var(--navy-deep) 30%, rgba(3, 26, 49, 0.6)), url("./texture/abstract-waves.jpg") center bottom / 100% auto no-repeat, var(--navy-deep); }
+.section.navy { background: url("./texture/grain-fine.png") 0 0 / 128px 128px repeat, linear-gradient(180deg, rgba(4, 32, 61, 0.55), rgba(4, 32, 61, 0.2) 40%, rgba(4, 32, 61, 0.65)), url("./texture/abstract-navy.jpg") center / cover no-repeat, var(--navy-ink); }
+.distance { background: url("./texture/grain-fine.png") 0 0 / 128px 128px repeat, linear-gradient(160deg, rgba(4, 32, 61, 0.3), rgba(4, 32, 61, 0.75)), url("./texture/abstract-navy.jpg") 70% 40% / cover no-repeat, var(--navy-ink); }
+.cta-band { background: url("./texture/grain-fine.png") 0 0 / 128px 128px repeat, linear-gradient(110deg, rgba(4, 32, 61, 0.92) 30%, rgba(4, 32, 61, 0.35)), url("./texture/abstract-teal.jpg") center / cover no-repeat, var(--navy-ink); }
+.site-footer { background: url("./texture/grain-fine.png") 0 0 / 128px 128px repeat, linear-gradient(180deg, var(--navy-deep) 30%, rgba(3, 26, 49, 0.6)), url("./texture/abstract-waves.jpg") center bottom / 100% auto no-repeat, var(--navy-deep); }
 .why-now { background: url("./texture/abstract-light.jpg") center / cover no-repeat, linear-gradient(160deg, #eef5fb, #f4f9ef); }
 .dark-card { background: linear-gradient(150deg, rgba(4, 32, 61, 0.6), rgba(10, 79, 143, 0.55)), url("./texture/abstract-navy.jpg") 60% 50% / cover no-repeat, var(--navy-ink) !important; }
 
@@ -1911,3 +1911,190 @@ main .refs li a:not([class]):hover { background: none; color: var(--navy); text-
 .s-pt.last b { left: auto; right: -4px; translate: 0 0; } .s-pt.first b { left: -4px; translate: 0 0; }
 /* Lists of varieties read as a sentence: a comma after each item, so a wrapped line never ends on a stray dot. */
 .chips li:not(:last-child)::after { content: ","; margin: 0 0.45em 0 0; color: inherit; }
+.land .by { color: var(--navy-ink); opacity: 0.78; }
+.hs-bar { opacity: calc(1 - var(--hx, 0)); translate: 0 calc(var(--hx, 0) * 8px); }
+/* Team portraits lift towards the visitor on hover: the frame rises, its shadow deepens, nothing darkens. */
+.member .portrait { transition: translate 0.6s var(--ease), box-shadow 0.6s var(--ease); }
+.member .portrait::after { display: none; }
+.member .portrait img { transition: scale 1.2s var(--ease); transform: none; }
+@media (hover: hover) {
+  .member:hover .portrait { translate: 0 -8px; box-shadow: 0 34px 50px -28px rgba(3, 26, 49, 0.45); }
+  .member:hover .portrait img { transform: none; scale: 1.025; }
+}
+
+/* 42 Crisp hover ---------------------------------------------------------------------------- */
+/* Nothing that carries text is scaled on hover: scaling resamples type and blurs it mid-move.
+   Cards lift by a few whole pixels instead, links only change colour and background, and every
+   hover eases in and out on the same curve so it never snaps back. */
+:root { --lift: -4px; --t-hover: 0.5s; }
+.card, .step, .market, .ally, .article-card, .press-card, .fig-card, .thesis > div, .route, .line-card, .stepper li, .unlock li, .market-light .fig, .refs li {
+  transition: translate var(--t-hover) var(--ease), box-shadow var(--t-hover) var(--ease), border-color var(--t-hover) var(--ease), background-color var(--t-hover) var(--ease), color 0.3s var(--ease);
+  backface-visibility: hidden;
+}
+@media (hover: hover) {
+  :is(.card, .step, .market, .ally, .article-card, .press-card, .fig-card, .thesis > div, .route, .line-card, .stepper li, .market-light .fig):hover { scale: none; translate: 0 var(--lift); }
+  .unlock li:hover, .refs li:hover { scale: none; transform: none; translate: none; }
+  :is(.clink, .nav a:not(.btn), .subnav a, .site-footer ul a, .chips li):hover { transform: none; scale: none; }
+}
+:is(.clink, .nav a:not(.btn), .subnav a, .site-footer ul a, .chips li) { transition: background-color 0.35s var(--ease), color 0.35s var(--ease); }
+/* photos inside cards still ease in slightly; images resample cleanly */
+.press-card:hover .go { transform: rotate(-8deg); }
+/* footer: studio credit above the disclaimer */
+.made-by { display: inline-flex; align-items: center; gap: 14px; margin-top: clamp(36px, 4vw, 52px); padding-top: 28px; border-top: 1px solid rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.5); font: 600 0.62rem/1 var(--font); letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; transition: color 0.4s var(--ease); }
+.made-by img { width: auto; height: 22px; opacity: 0.72; transition: opacity 0.4s var(--ease); }
+.made-by:hover { color: rgba(255, 255, 255, 0.8); }
+.made-by:hover img { opacity: 1; }
+.made-by + .disclaimer { margin-top: 18px; }
+
+/* 43 Press and reference cards -------------------------------------------------------------- */
+.press-card { gap: 18px; }
+.press-card.has-thumb { padding-top: 0; }
+.pc-thumb { display: block; margin: 0 calc(-1 * var(--card-pad)) 6px; aspect-ratio: 21 / 9; overflow: hidden; border-radius: var(--card-r) var(--card-r) 0 0; background: var(--paper-2); }
+.pc-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; transition: scale 1.2s var(--ease); }
+@media (hover: hover) { .press-card:hover .pc-thumb img { scale: 1.04; } }
+.press-card .pc-top { align-items: center; }
+.press-card.has-thumb .pc-top { margin-top: 4px; }
+.pc-read { opacity: 1; transform: none; color: var(--ink-2); font-size: 0.8rem; transition: color 0.4s var(--ease); }
+.press-card:hover .pc-read { color: var(--navy); }
+.section.navy .press-card .pc-read { color: var(--ink-2); }
+.section.navy .press-card:hover .pc-read { color: var(--navy); }
+.press-card .go { width: 38px; height: 38px; }
+/* explanatory and disclaimer lines under a group of cards */
+.fineprint, .press + p.muted, .press + .note, .refs + p, p.note { max-width: 70ch; margin: clamp(22px, 2.6vw, 32px) 0 0; font-size: 0.82rem; line-height: 1.6; color: var(--ink-2); }
+.section.navy :is(.fineprint, p.note) { color: rgba(255, 255, 255, 0.66); }
+
+/* 44 Supply: markets and the sales contact --------------------------------------------------- */
+.m-group { margin-top: clamp(36px, 4.4vw, 56px); }
+.m-head { display: flex; align-items: center; gap: 12px; padding-bottom: 16px; border-bottom: 1px solid var(--line-dark); font: 600 0.68rem/1 var(--font); letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255, 255, 255, 0.72); }
+.m-dot { width: 8px; height: 8px; border-radius: 50%; box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.5); }
+.m-dot.now { background: var(--green-light); box-shadow: 0 0 0 4px rgba(184, 224, 140, 0.18); }
+.m-group .markets { gap: clamp(14px, 1.6vw, 22px); margin-top: 22px; border: 0; border-radius: 0; background: none; }
+@media (min-width: 861px) { .m-group .markets { overflow: visible; } }
+.m-group .market { display: flex; flex-direction: column; gap: 10px; min-height: 100%; padding: var(--card-pad); border: 1px solid var(--line); border-radius: var(--card-r); }
+.m-n { font: 300 1.5rem/1 var(--display); letter-spacing: -0.03em; color: var(--blue); margin-bottom: 14px; }
+.m-group .market h3 { margin: 0; font-family: var(--display); font-size: clamp(1.15rem, 1.5vw, 1.32rem); font-weight: 400; letter-spacing: -0.015em; }
+.m-group .market p { font-size: 0.93rem; line-height: 1.6; }
+.m-group + .m-group .market { background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03)); border-color: rgba(255, 255, 255, 0.12); box-shadow: none; }
+.section.navy .m-group + .m-group .market :is(h3) { color: #fff; }
+.section.navy .m-group + .m-group .market p { color: rgba(255, 255, 255, 0.72); }
+.m-group + .m-group .m-n { color: var(--green-light); }
+.supply-contact { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 64px); align-items: center; margin-top: clamp(48px, 6vw, 80px); padding: clamp(28px, 3.6vw, 48px); border-radius: calc(var(--card-r) + 4px); background: #fff; color: var(--ink); box-shadow: 0 40px 80px -48px rgba(0, 0, 0, 0.6); }
+.supply-contact .k { display: block; margin-bottom: 14px; font: 600 0.66rem/1 var(--font); letter-spacing: 0.2em; text-transform: uppercase; color: var(--green-ink); }
+.supply-contact h3 { margin: 0 0 12px; font-family: var(--display); font-size: clamp(1.5rem, 2.4vw, 2.1rem); font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.section.navy .supply-contact p { margin: 0; max-width: 46ch; color: var(--ink-2); }
+.sc-person { display: grid; gap: 12px; justify-items: stretch; padding-left: clamp(0px, 3vw, 40px); border-left: 1px solid var(--line); }
+.sc-who { margin-bottom: 6px; font: 400 1.15rem/1.2 var(--display); color: var(--ink); }
+.sc-who small { display: block; margin-top: 4px; font: 500 0.8rem/1 var(--font); color: var(--ink-2); }
+@media (max-width: 860px) { .supply-contact { grid-template-columns: minmax(0, 1fr); } .sc-person { padding-left: 0; padding-top: 24px; border-left: 0; border-top: 1px solid var(--line); } }
+
+/* 45 About partners on dark ------------------------------------------------------------------ */
+#partners .allies { gap: clamp(18px, 2.2vw, 28px); }
+#partners .ally { border: 0; border-radius: calc(var(--card-r) + 2px); background: #fff; box-shadow: 0 40px 80px -50px rgba(0, 0, 0, 0.7); }
+#partners .ally .logo-tile { min-height: clamp(170px, 16vw, 210px); padding: 36px; border-bottom: 1px solid var(--line); background: radial-gradient(520px 220px at 50% 130%, rgba(26, 143, 224, 0.09), transparent 70%), linear-gradient(180deg, #fff, #f7fafc); }
+#partners .ally .logo-tile img { transform: none; transition: scale 1s var(--ease); }
+@media (hover: hover) { #partners .ally:hover .logo-tile img { scale: 1.03; } }
+#partners .ally-body { display: flex; flex-direction: column; gap: 14px; padding: var(--card-pad); }
+#partners .ally .tag { font: 600 0.64rem/1.3 var(--font); letter-spacing: 0.18em; text-transform: uppercase; color: var(--green-ink); }
+#partners .ally h3 { margin: 0; font-family: var(--display); font-size: clamp(1.6rem, 2.4vw, 2.1rem); font-weight: 300; letter-spacing: -0.03em; color: var(--ink); }
+#partners .ally p { margin: 0; color: var(--ink-2); }
+#partners .ally .chips { color: var(--navy); }
+#partners .ally-body .lead { margin-top: auto; padding-top: 18px; border-top: 1px solid var(--line); }
+#partners .photo.cine { box-shadow: 0 40px 80px -50px rgba(0, 0, 0, 0.7); }
+
+/* 46 Next chapter, above the footer -------------------------------------------------------- */
+.next-up { position: relative; overflow: hidden; border-top: 1px solid var(--line); background: linear-gradient(180deg, var(--paper), #f3f0e9); }
+.next-up::before { content: ""; position: absolute; inset: 0; background: radial-gradient(900px 300px at 85% 120%, rgba(26, 143, 224, 0.1), transparent 70%), radial-gradient(600px 260px at 0% -20%, rgba(109, 181, 42, 0.08), transparent 70%); opacity: 0; transition: opacity 0.8s var(--ease); pointer-events: none; }
+.next-up:hover::before { opacity: 1; }
+.next-up a { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "n go" "t go"; align-items: center; gap: 14px 32px; padding-block: clamp(48px, 7vw, 96px); }
+.next-up .eyebrow-n { grid-area: n; display: flex; align-items: center; gap: 14px; width: auto; }
+.next-up .eyebrow-n::after { content: ""; width: 48px; height: 1px; background: currentColor; opacity: 0.5; transition: width 0.7s var(--ease); }
+.next-up a:hover .eyebrow-n::after { width: 88px; }
+.next-up strong { grid-area: t; max-width: 26ch; font-size: clamp(1.7rem, 3.8vw, 3.3rem); line-height: 1.08; letter-spacing: -0.035em; color: var(--ink); }
+.next-up .go { grid-area: go; width: clamp(60px, 6vw, 84px); height: clamp(60px, 6vw, 84px); background: #fff; box-shadow: 0 20px 40px -24px rgba(3, 26, 49, 0.35); transition: background-color 0.5s var(--ease), border-color 0.5s var(--ease), color 0.5s var(--ease), translate 0.5s var(--ease); }
+.next-up a:hover .go { translate: 6px 0; }
+@media (max-width: 620px) { .next-up a { grid-template-columns: minmax(0, 1fr) auto; gap: 12px 18px; padding-block: 40px; } .next-up .go { width: 52px; height: 52px; } .next-up .eyebrow-n { width: auto; } }
+
+/* 47 Steppers: one dot per card, centred on the card and exactly on the line ------------------ */
+.stepper { padding-top: 40px; }
+.stepper::before { top: 0; height: 2px; }
+.stepper li::before { box-sizing: border-box; top: -47px; left: 50%; width: 16px; height: 16px; margin-left: -8px; border-width: 3px; transition: scale 0.7s var(--ease), background-color 0.4s var(--ease), box-shadow 0.4s var(--ease), translate var(--t-hover) var(--ease); }
+/* the card lifts on hover; its dot stays on the line */
+@media (hover: hover) { .stepper li:hover::before { translate: 0 calc(-1 * var(--lift)); } }
+.stepper li:nth-child(1)::before { transition-delay: 0.2s, 0s, 0s, 0s; }
+.stepper li:nth-child(2)::before { transition-delay: 0.55s, 0s, 0s, 0s; }
+.stepper li:nth-child(3)::before { transition-delay: 0.9s, 0s, 0s, 0s; }
+.stepper li:nth-child(4)::before { transition-delay: 1.25s, 0s, 0s, 0s; }
+.stepper li:nth-child(5)::before { transition-delay: 1.6s, 0s, 0s, 0s; }
+
+/* 48 Type balance ----------------------------------------------------------------------------- */
+/* Three text levels everywhere: primary (ink), secondary (body and descriptions) and tertiary
+   (sources, dates, captions, fine print). On dark surfaces the same three levels are set as white
+   at full, 78% and 58%. Small uppercase labels get more tracking and lighter weight colour; large
+   display type gets tighter tracking. */
+:root { --ink-3: rgba(14, 34, 53, 0.56); --on-dark-2: rgba(255, 255, 255, 0.78); --on-dark-3: rgba(255, 255, 255, 0.58); }
+.src, .pc-chip, .fineprint, p.note, .c-axis small, .s-axis span, .s-tick em, .r-l, .st-l, .w-key li, .made-by, .disclaimer { color: var(--ink-3); }
+:is(.section.navy, .band, .site-footer, .hscroll, .cta-band) :is(.src, .fineprint, p.note, .c-axis small, .s-axis span, .s-tick em, .st-l, .w-key li) { color: var(--on-dark-3); }
+.section.navy :is(.press-card, .fig-card, .market, .why-now, .route, .ally, .article-card, .line-card, .supply-contact) :is(.src, .pc-chip) { color: var(--ink-3); }
+.site-footer .disclaimer { color: rgba(255, 255, 255, 0.5); }
+:is(.section.navy, .band, .cta-band) :is(p, .lead, .muted):not(.src):not(.note):not(.fineprint) { color: var(--on-dark-2); }
+.section.navy :is(.press-card, .fig-card, .market, .why-now, .route, .ally, .article-card, .line-card, .supply-contact, .stepper li, .card.pcard) :is(p, .lead, .muted):not(.src) { color: var(--ink-2); }
+.section.navy .card:not(.pcard) p { color: var(--on-dark-2); }
+.src { font-size: 0.74rem; line-height: 1.5; letter-spacing: 0.01em; }
+h1, h2 { text-wrap: balance; }
+p, li, figcaption { text-wrap: pretty; }
+.sec-label { color: var(--ink-3); }
+.sec-label b { color: var(--green-ink); }
+.section.navy .m-group + .m-group .market p { color: var(--on-dark-2); }
+
+/* 49 Floating investor invitation ------------------------------------------------------------ */
+/* A dark pill with a live status dot. On hover a fill grows out of the arrow and takes over the
+   pill, the type inverts, and the arrow slides through: one gesture, no bounce. */
+.float-cta { isolation: isolate; overflow: hidden; gap: 18px; padding: 7px 7px 7px 22px; border: 1px solid rgba(255, 255, 255, 0.12); background: rgba(4, 32, 61, 0.92); -webkit-backdrop-filter: blur(14px) saturate(1.4); backdrop-filter: blur(14px) saturate(1.4); box-shadow: 0 24px 50px -22px rgba(3, 26, 49, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.08); color: #fff; }
+.float-cta::before { content: ""; position: absolute; z-index: -1; right: 28px; top: 50%; width: 44px; height: 44px; margin: -22px -22px 0 0; border-radius: 50%; background: var(--green-light); transform: scale(0); transition: transform 0.7s var(--ease); }
+.float-cta:hover::before { transform: scale(9); }
+.float-cta:hover { border-color: transparent; }
+.fc-text { gap: 4px; font: 500 0.84rem/1.2 var(--font); letter-spacing: 0; transition: color 0.45s var(--ease); }
+.fc-text small { display: inline-flex; align-items: center; gap: 8px; font: 600 0.58rem/1 var(--font); letter-spacing: 0.2em; color: rgba(255, 255, 255, 0.6); transition: color 0.45s var(--ease); }
+.fc-live { width: 6px; height: 6px; border-radius: 50%; background: var(--green-light); box-shadow: 0 0 0 0 rgba(184, 224, 140, 0.6); animation: fc-live 2.4s var(--ease) infinite; }
+@keyframes fc-live { 0% { box-shadow: 0 0 0 0 rgba(184, 224, 140, 0.55); } 70%, 100% { box-shadow: 0 0 0 7px rgba(184, 224, 140, 0); } }
+.fc-go { width: 44px; height: 44px; background: #fff; color: var(--navy-ink); transition: background-color 0.45s var(--ease), color 0.45s var(--ease); }
+.float-cta:hover .fc-text { color: var(--navy-ink); }
+.float-cta:hover .fc-text small { color: rgba(4, 32, 61, 0.62); }
+.float-cta:hover .fc-live { background: var(--green-ink); }
+.float-cta:hover .fc-go { background: var(--navy-ink); color: #fff; }
+@media (prefers-reduced-motion: reduce) { .fc-live { animation: none; } }
+.section.navy .m-group + .m-group .market.market p { color: var(--on-dark-2); }
+.site-footer .made-by { color: rgba(255, 255, 255, 0.55); }
+.site-footer .made-by:hover { color: rgba(255, 255, 255, 0.85); }
+.made-by img { height: 40px; }
+.float-cta:hover::before { transform: scale(16); }
+
+/* 50 Pointer: always the Oribi arrow -------------------------------------------------------- */
+/* Every element, text fields included, uses the custom arrow; links and controls use the tinted
+   arrow, and pressing uses the same tinted arrow, so the pointer never falls back to the system one. */
+@media (hover: hover) and (pointer: fine) {
+  html, body, *, *::before, *::after { cursor: url("./cursor/pointer.svg") 2 1, url("./cursor/pointer.png") 2 1, default !important; }
+  a, a *, button, button *, label, select, summary, [role="button"], [role="button"] *, .menu-btn, input[type="submit"], input[type="button"], .press-card *, .hs-card, .tabbar a, .tabbar button, video { cursor: url("./cursor/pointer-active.svg") 2 1, url("./cursor/pointer-active.png") 2 1, pointer !important; }
+  html.pressing, html.pressing * { cursor: url("./cursor/pointer-active.svg") 2 1, url("./cursor/pointer-active.png") 2 1, pointer !important; }
+}
+
+/* 51 Header: a little taller, a larger mark, slightly larger link text --------------------- */
+:root { --header: 86px; }
+.wm-type { width: 112px; height: 34px; }
+.wm-icon { width: 34px; height: 34px; }
+.nav a:not(.btn) { font-size: 0.9rem; }
+.nav .btn { font-size: 0.84rem; }
+@media (max-width: 1240px) and (min-width: 1041px) { .nav a:not(.btn) { font-size: 0.84rem; } }
+@media (max-width: 1040px) { :root { --header: 76px; } }
+@media (max-width: 860px) { :root { --header: 64px; } .wm-type { width: 92px; height: 28px; } .wm-icon { width: 28px; height: 28px; } }
+
+/* 52 Partner carousel ---------------------------------------------------------------------- */
+.pmarquee { position: relative; margin-top: clamp(36px, 5vw, 60px); overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent); mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent); }
+.pm-track { list-style: none; display: flex; width: max-content; margin: 0; padding: 22px 0 34px; animation: pm-run 48s linear infinite; will-change: transform; }
+.pmarquee:hover .pm-track { animation-play-state: paused; }
+@keyframes pm-run { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-25%, 0, 0); } }
+.pm-item { flex: none; display: grid; justify-items: center; align-content: center; gap: 16px; width: clamp(200px, 19vw, 260px); height: clamp(150px, 13vw, 176px); margin-right: clamp(12px, 1.4vw, 18px); padding: 24px; border: 1px solid var(--line); border-radius: var(--card-r); background: linear-gradient(180deg, #fff, #fdfcf8); box-shadow: var(--card-shadow); }
+.pm-item img { width: auto; max-width: min(var(--w), 80%); height: auto; max-height: var(--h); object-fit: contain; filter: grayscale(1) contrast(1.05); opacity: 0.72; transition: filter 0.5s var(--ease), opacity 0.5s var(--ease); }
+.pm-item:hover img { filter: none; opacity: 1; }
+.pm-item .nm { font: 600 0.6rem/1.3 var(--font); letter-spacing: 0.16em; text-transform: uppercase; text-align: center; color: var(--ink-3); }
+@media (prefers-reduced-motion: reduce) { .pm-track { animation: none; flex-wrap: wrap; width: auto; justify-content: center; } .pm-item[aria-hidden] { display: none; } .pmarquee { -webkit-mask-image: none; mask-image: none; } }
