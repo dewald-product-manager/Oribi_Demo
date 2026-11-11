@@ -2597,3 +2597,8 @@ html { scrollbar-color: var(--navy) rgba(4, 32, 61, 0.06); }
   .rp-tile { flex: 0 0 40%; scroll-snap-align: start; }
 }
 @media (max-width: 620px) { .varieties { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; } .varieties figcaption { font-size: 0.72rem; } }
+
+/* 88. Floating invitation: round on three corners, a tighter bottom-right corner (a quarter of the others), a little wider */
+.float-cta { border-radius: 20px 20px 5px 20px; gap: 24px; padding: 6px 6px 6px 28px; }
+.float-cta .fc-go { border-radius: 14px 14px 4px 14px; }
+@media (max-width: 860px) { .float-cta { padding-left: 22px; } }
