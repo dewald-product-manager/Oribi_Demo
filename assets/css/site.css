@@ -2602,3 +2602,93 @@ html { scrollbar-color: var(--navy) rgba(4, 32, 61, 0.06); }
 .float-cta { border-radius: 20px 20px 5px 20px; gap: 24px; padding: 6px 6px 6px 28px; }
 .float-cta .fc-go { border-radius: 14px 14px 4px 14px; }
 @media (max-width: 860px) { .float-cta { padding-left: 22px; } }
+
+/* 89. Landscapes sit whole inside their own band: nothing is pulled up under the section above */
+.hz-land { margin-top: 0; }
+.horizon { padding-top: clamp(16px, 2.4vw, 36px); }
+
+/* 90. Distance card: each load travels left to right in one smooth, unbroken loop (no pause, no jump) */
+@media (prefers-reduced-motion: no-preference) {
+  .distance.in .dist-route:is(.far, .near) .truck { transition: none; animation: haul 4.8s linear 2.4s infinite; }
+  .distance.in .dist-route:is(.far, .near) .trail { transition: none; animation: haul-trail 4.8s linear 2.4s infinite; }
+  .distance.in .dist-route.near:is(.near) .truck, .distance.in .dist-route.near:is(.near) .trail { animation-duration: 2.4s; }
+  .distance.in .dist-route:is(.far, .near) .end::after { animation: none; }
+  .distance.in .dist-route.near:is(.near) { animation: none; }
+}
+@keyframes haul { 0% { left: var(--from); opacity: 0; } 8% { opacity: 1; } 92% { opacity: 1; } 100% { left: 100%; opacity: 0; } }
+@keyframes haul-trail { 0% { width: 0; opacity: 0; } 8% { opacity: 0.55; } 92% { opacity: 0.55; } 100% { width: calc(100% - var(--from)); opacity: 0; } }
+
+/* 91. Stepper: a scroll-linked line. Track, fill and dots share one geometry; each step wakes as the line reaches it */
+.stepper { --p: 0; padding-top: 38px; }
+.stepper::after { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px; border-radius: 2px; background: var(--line); }
+.stepper::before, .stepper.in::before { z-index: 1; transform: scaleX(var(--p)); transform-origin: left center; transition: transform 0.18s linear; }
+.stepper li::before, .stepper.in li::before { top: -45px; scale: 1; z-index: 2; background: var(--paper-2); box-shadow: 0 0 0 2px var(--line-2); transition: background-color 0.45s var(--ease), box-shadow 0.45s var(--ease), scale 0.45s cubic-bezier(0.34, 1.56, 0.64, 1); transition-delay: 0s; }
+.stepper li.on::before { background: var(--navy); box-shadow: 0 0 0 2px var(--navy), 0 0 0 8px rgba(0, 73, 140, 0.12); scale: 1.12; }
+.stepper li:last-child.on::before { background: var(--green); box-shadow: 0 0 0 2px var(--green), 0 0 0 8px rgba(109, 181, 42, 0.18); }
+.stepper li { opacity: 0.55; translate: 0 10px; transition: opacity 0.6s var(--ease), translate 0.6s var(--ease), scale 0.7s var(--ease), box-shadow 0.7s var(--ease), border-color 0.7s var(--ease); }
+.stepper li.on { opacity: 1; translate: none; }
+.stepper li .tl-when { color: var(--ink-3); transition: color 0.5s var(--ease); }
+.stepper li.on .tl-when { color: var(--navy); }
+/* vertical on phones and small tablets: the line runs down the left edge */
+@media (max-width: 1040px) {
+  .stepper, .stepper.vertical { grid-template-columns: minmax(0, 1fr); padding: 0 0 0 30px; }
+  .stepper::after, .stepper::before, .stepper.in::before { display: block; top: 6px; bottom: 6px; left: 6px; right: auto; width: 2px; height: auto; }
+  .stepper::before, .stepper.in::before { transform: scaleY(var(--p)); transform-origin: center top; }
+  .stepper li::before, .stepper.in li::before { display: block; top: 26px; left: -31px; }
+}
+@media (prefers-reduced-motion: reduce) { .stepper li { opacity: 1; translate: none; } }
+
+/* 92. Produce 03, rethought: one glass row per category, the facts on the left, the packs on the right */
+.rg-range { display: grid; gap: clamp(14px, 1.6vw, 20px); }
+.rg-row { display: grid; grid-template-columns: minmax(220px, 300px) minmax(0, 1fr); gap: clamp(20px, 3vw, 44px); align-items: start; padding: clamp(20px, 2.4vw, 32px); border: 1px solid rgba(255, 255, 255, 0.5); border-radius: var(--card-r); color: var(--ink);
+  background: linear-gradient(110deg, rgba(251, 249, 245, 0.94) 0%, rgba(251, 249, 245, 0.88) 38%, rgba(255, 255, 255, 0.5) 100%);
+  -webkit-backdrop-filter: blur(20px) saturate(1.3); backdrop-filter: blur(20px) saturate(1.3);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75), 0 40px 70px -44px rgba(0, 0, 0, 0.75); }
+.rg-head { position: sticky; top: calc(var(--header) + 24px); }
+.rg-head .ico-chip { margin-bottom: 18px; }
+.rg-head h3 { margin: 0; color: var(--ink); font-family: var(--display); font-size: clamp(1.4rem, 2vw, 1.75rem); font-weight: 400; letter-spacing: -0.02em; line-height: 1.15; }
+.rg-pack { margin: 10px 0 0; font: italic 400 1.02rem/1.4 var(--serif); color: var(--green-ink); }
+.rg-note { margin: 12px 0 0; font-size: 0.92rem; line-height: 1.6; color: var(--ink-2); }
+.rg-tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 14px; }
+.rg-tile { margin: 0; }
+.rg-tile img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 12px; background: #ecebe8; box-shadow: 0 14px 24px -18px rgba(3, 26, 49, 0.45); transition: translate 0.55s var(--ease), scale 0.55s var(--ease), box-shadow 0.55s var(--ease); }
+.rg-tile figcaption { margin-top: 8px; font-size: 0.8rem; font-weight: 500; line-height: 1.3; color: var(--ink); transition: color 0.4s var(--ease); }
+@media (hover: hover) { .rg-tile:hover img { translate: 0 -5px; scale: 1.04; box-shadow: 0 26px 36px -22px rgba(3, 26, 49, 0.55); } .rg-tile:hover figcaption { color: var(--navy); } }
+.rg-more { margin: 22px 0 0; padding-top: 14px; border-top: 1px solid var(--line); }
+.rg-more span { font: 600 0.66rem/1 var(--font); letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3); }
+.lines-garden .rg-list { grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); }
+@media (max-width: 860px) {
+  .rg-row { grid-template-columns: minmax(0, 1fr); gap: 18px; background: linear-gradient(180deg, rgba(251, 249, 245, 0.95), rgba(251, 249, 245, 0.88)); }
+  .rg-head { position: static; }
+  .rg-head .ico-chip { margin-bottom: 12px; }
+  .rg-tiles { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; margin-inline: calc(-1 * clamp(20px, 2.4vw, 32px)); padding: 4px clamp(20px, 2.4vw, 32px) 6px; scroll-padding-inline: clamp(20px, 2.4vw, 32px); scrollbar-width: none; }
+  .rg-tiles::-webkit-scrollbar { display: none; }
+  .rg-tile { flex: 0 0 38%; scroll-snap-align: start; }
+}
+.horizon::after { height: min(66%, 330px); }
+
+/* 93. Produce 03 as true glass: smoked, blurred leaves behind, a lit top edge and a soft sheen */
+.rg-row {
+  position: relative; overflow: hidden; isolation: isolate; color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.06) 40%, rgba(8, 28, 16, 0.28) 100%);
+  -webkit-backdrop-filter: blur(26px) saturate(1.5) brightness(0.82); backdrop-filter: blur(26px) saturate(1.5) brightness(0.82);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.04), 0 40px 80px -44px rgba(0, 0, 0, 0.8);
+  transition: border-color 0.6s var(--ease), box-shadow 0.6s var(--ease);
+}
+.rg-row::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(120% 80% at 0% 0%, rgba(255, 255, 255, 0.14), transparent 55%), var(--grain); opacity: 0.9; }
+@media (hover: hover) { .rg-row:hover { border-color: rgba(184, 224, 140, 0.4); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 50px 90px -44px rgba(0, 0, 0, 0.85); } }
+.rg-head h3 { color: #fff; }
+.rg-pack { color: var(--green-light); }
+.rg-note { color: rgba(255, 255, 255, 0.76); }
+.rg-head .ico-chip { background: rgba(255, 255, 255, 0.92); }
+.rg-tile figcaption { color: rgba(255, 255, 255, 0.9); }
+@media (hover: hover) { .rg-tile:hover figcaption { color: #fff; } }
+.rg-tile img { box-shadow: 0 18px 30px -18px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.35); }
+.rg-more { border-top-color: rgba(255, 255, 255, 0.16); }
+.rg-more span { color: rgba(255, 255, 255, 0.6); }
+.lines-garden .rg-list li { color: rgba(255, 255, 255, 0.92); }
+@media (hover: hover) { .lines-garden .rg-list li:hover { color: #fff; text-shadow: 0 6px 14px rgba(0, 0, 0, 0.35); } }
+@media (max-width: 860px) { .rg-row { background: linear-gradient(160deg, rgba(255, 255, 255, 0.16), rgba(8, 28, 16, 0.34)); } }
+.lines-garden .rg-head .ico-chip { border-radius: 14px; background: rgba(255, 255, 255, 0.12); color: #fff; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.35); }
+.lines-garden .rg-head .ico-chip .ico { filter: brightness(0) invert(1); opacity: 0.92; }
