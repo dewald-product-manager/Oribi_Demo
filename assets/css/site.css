@@ -1324,14 +1324,14 @@ a, button, summary, label { -webkit-tap-highlight-color: transparent; touch-acti
 
 /* 27 Grain, on dark surfaces only ------------------------------------------------------ */
 /* A fine light grain over a soft blue glow, the same on every dark surface; never on paper or white. */
-.section.navy { background: url("./texture/grain-fine.png") 0 0 / 128px 128px repeat, radial-gradient(1100px 560px at 88% -12%, rgba(26, 143, 224, 0.3), transparent 62%), radial-gradient(900px 520px at 0% 110%, rgba(109, 181, 42, 0.1), transparent 60%), var(--navy-ink); }
-.hscroll { background: url("./texture/grain-fine.png") 0 0 / 128px 128px repeat, radial-gradient(1000px 600px at 90% 0%, rgba(26, 143, 224, 0.22), transparent 62%), var(--navy-deep); }
-.site-footer { background: url("./texture/grain-fine.png") 0 0 / 128px 128px repeat, radial-gradient(900px 480px at 100% 0%, rgba(26, 143, 224, 0.18), transparent 62%), var(--navy-deep); }
-.distance { background: url("./texture/grain-fine.png") 0 0 / 128px 128px repeat, radial-gradient(600px 320px at 100% 0%, rgba(26, 143, 224, 0.3), transparent 70%), radial-gradient(420px 260px at 0% 100%, rgba(109, 181, 42, 0.14), transparent 70%), var(--navy-ink); }
-.cta-band { background: url("./texture/grain-fine.png") 0 0 / 128px 128px repeat, radial-gradient(520px 320px at 100% 0%, rgba(109, 181, 42, 0.2), transparent 70%), linear-gradient(120deg, var(--navy-ink), #0a4f8f); }
-.hero::after { background: url("./texture/grain-fine.png") 0 0 / 128px 128px repeat, linear-gradient(180deg, rgba(3, 26, 49, 0.7) 0%, rgba(3, 26, 49, 0.28) 28%, rgba(3, 26, 49, 0.5) 62%, rgba(3, 26, 49, 0.92) 100%), linear-gradient(90deg, rgba(3, 26, 49, 0.62), transparent 64%); }
-.page-hero.has-img::after { background: url("./texture/grain-fine.png") 0 0 / 128px 128px repeat, linear-gradient(180deg, rgba(3, 26, 49, 0.82), rgba(3, 26, 49, 0.6) 50%, rgba(3, 26, 49, 0.92)), linear-gradient(90deg, rgba(3, 26, 49, 0.55), transparent 70%); }
-.band::after { background: url("./texture/grain-fine.png") 0 0 / 128px 128px repeat, linear-gradient(90deg, rgba(3, 26, 49, 0.94), rgba(3, 26, 49, 0.62) 58%, rgba(3, 26, 49, 0.3)); }
+.section.navy { background: var(--grain), radial-gradient(1100px 560px at 88% -12%, rgba(26, 143, 224, 0.3), transparent 62%), radial-gradient(900px 520px at 0% 110%, rgba(109, 181, 42, 0.1), transparent 60%), var(--navy-ink); }
+.hscroll { background: var(--grain), radial-gradient(1000px 600px at 90% 0%, rgba(26, 143, 224, 0.22), transparent 62%), var(--navy-deep); }
+.site-footer { background: var(--grain), radial-gradient(900px 480px at 100% 0%, rgba(26, 143, 224, 0.18), transparent 62%), var(--navy-deep); }
+.distance { background: var(--grain), radial-gradient(600px 320px at 100% 0%, rgba(26, 143, 224, 0.3), transparent 70%), radial-gradient(420px 260px at 0% 100%, rgba(109, 181, 42, 0.14), transparent 70%), var(--navy-ink); }
+.cta-band { background: var(--grain), radial-gradient(520px 320px at 100% 0%, rgba(109, 181, 42, 0.2), transparent 70%), linear-gradient(120deg, var(--navy-ink), #0a4f8f); }
+.hero::after { background: var(--grain), linear-gradient(180deg, rgba(3, 26, 49, 0.7) 0%, rgba(3, 26, 49, 0.28) 28%, rgba(3, 26, 49, 0.5) 62%, rgba(3, 26, 49, 0.92) 100%), linear-gradient(90deg, rgba(3, 26, 49, 0.62), transparent 64%); }
+.page-hero.has-img::after { background: var(--grain), linear-gradient(180deg, rgba(3, 26, 49, 0.82), rgba(3, 26, 49, 0.6) 50%, rgba(3, 26, 49, 0.92)), linear-gradient(90deg, rgba(3, 26, 49, 0.55), transparent 70%); }
+.band::after { background: var(--grain), linear-gradient(90deg, rgba(3, 26, 49, 0.94), rgba(3, 26, 49, 0.62) 58%, rgba(3, 26, 49, 0.3)); }
 
 /* 28 Sky and land ---------------------------------------------------------------------- */
 /* The problem section fades into a soft sky; the farm, cut out along its horizon, rises out of it. */
@@ -1552,10 +1552,10 @@ main p a:not([class]):hover, main li a:not([class]):hover { background: rgba(0, 
 
 /* 35 Abstract backdrops, used subtly ------------------------------------------------------ */
 /* Pre-blended into the brand navy (or paper), so they read as a soft contour, never as a picture. */
-.section.navy { background: url("./texture/grain-fine.png") 0 0 / 128px 128px repeat, linear-gradient(180deg, rgba(4, 32, 61, 0.55), rgba(4, 32, 61, 0.2) 40%, rgba(4, 32, 61, 0.65)), url("./texture/abstract-navy.jpg") center / cover no-repeat, var(--navy-ink); }
-.distance { background: url("./texture/grain-fine.png") 0 0 / 128px 128px repeat, linear-gradient(160deg, rgba(4, 32, 61, 0.3), rgba(4, 32, 61, 0.75)), url("./texture/abstract-navy.jpg") 70% 40% / cover no-repeat, var(--navy-ink); }
-.cta-band { background: url("./texture/grain-fine.png") 0 0 / 128px 128px repeat, linear-gradient(110deg, rgba(4, 32, 61, 0.92) 30%, rgba(4, 32, 61, 0.35)), url("./texture/abstract-teal.jpg") center / cover no-repeat, var(--navy-ink); }
-.site-footer { background: url("./texture/grain-fine.png") 0 0 / 128px 128px repeat, linear-gradient(180deg, var(--navy-deep) 30%, rgba(3, 26, 49, 0.6)), url("./texture/abstract-waves.jpg") center bottom / 100% auto no-repeat, var(--navy-deep); }
+.section.navy { background: var(--grain), linear-gradient(180deg, rgba(4, 32, 61, 0.55), rgba(4, 32, 61, 0.2) 40%, rgba(4, 32, 61, 0.65)), url("./texture/abstract-navy.jpg") center / cover no-repeat, var(--navy-ink); }
+.distance { background: var(--grain), linear-gradient(160deg, rgba(4, 32, 61, 0.3), rgba(4, 32, 61, 0.75)), url("./texture/abstract-navy.jpg") 70% 40% / cover no-repeat, var(--navy-ink); }
+.cta-band { background: var(--grain), linear-gradient(110deg, rgba(4, 32, 61, 0.92) 30%, rgba(4, 32, 61, 0.35)), url("./texture/abstract-teal.jpg") center / cover no-repeat, var(--navy-ink); }
+.site-footer { background: var(--grain), linear-gradient(180deg, var(--navy-deep) 30%, rgba(3, 26, 49, 0.6)), url("./texture/abstract-waves.jpg") center bottom / 100% auto no-repeat, var(--navy-deep); }
 .why-now { background: url("./texture/abstract-light.jpg") center / cover no-repeat, linear-gradient(160deg, #eef5fb, #f4f9ef); }
 .dark-card { background: linear-gradient(150deg, rgba(4, 32, 61, 0.6), rgba(10, 79, 143, 0.55)), url("./texture/abstract-navy.jpg") 60% 50% / cover no-repeat, var(--navy-ink) !important; }
 
@@ -2090,7 +2090,7 @@ p, li, figcaption { text-wrap: pretty; }
 
 /* 52 Partner carousel ---------------------------------------------------------------------- */
 .pmarquee { position: relative; margin-top: clamp(36px, 5vw, 60px); overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent); mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent); }
-.pm-track { list-style: none; display: flex; width: max-content; margin: 0; padding: 22px 0 34px; animation: pm-run 48s linear infinite; will-change: transform; }
+.pm-track { list-style: none; display: flex; width: max-content; margin: 0; padding: 22px 0 34px; animation: pm-run 38s linear infinite; will-change: transform; }
 .pmarquee:hover .pm-track { animation-play-state: paused; }
 @keyframes pm-run { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-25%, 0, 0); } }
 .pm-item { flex: none; display: grid; justify-items: center; align-content: center; gap: 16px; width: clamp(200px, 19vw, 260px); height: clamp(150px, 13vw, 176px); margin-right: clamp(12px, 1.4vw, 18px); padding: 24px; border: 1px solid var(--line); border-radius: var(--card-r); background: linear-gradient(180deg, #fff, #fdfcf8); box-shadow: var(--card-shadow); }
@@ -2098,3 +2098,187 @@ p, li, figcaption { text-wrap: pretty; }
 .pm-item:hover img { filter: none; opacity: 1; }
 .pm-item .nm { font: 600 0.6rem/1.3 var(--font); letter-spacing: 0.16em; text-transform: uppercase; text-align: center; color: var(--ink-3); }
 @media (prefers-reduced-motion: reduce) { .pm-track { animation: none; flex-wrap: wrap; width: auto; justify-content: center; } .pm-item[aria-hidden] { display: none; } .pmarquee { -webkit-mask-image: none; mask-image: none; } }
+
+/* 53 Between pages -------------------------------------------------------------------------- */
+/* Browsers that support cross-document view transitions keep the header in place and cross-fade the
+   page under it; elsewhere the page fades in. The header's colours are set before transitions are
+   switched on, so the logo appears once, already in its final colour. */
+@view-transition { navigation: auto; }
+.site-header { view-transition-name: site-header; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.5s; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+::view-transition-group(site-header) { animation-duration: 0.5s; }
+.site-header:not(.ready), .site-header:not(.ready) * { transition: none !important; }
+.brand { animation: brand-in 0.9s var(--ease) both; }
+@keyframes brand-in { from { opacity: 0; } to { opacity: 1; } }
+@supports (view-transition-name: a) { .brand { animation: none; } }
+main#main { animation: page-in 0.7s var(--ease) both; }
+
+/* 54 Home hero type ------------------------------------------------------------------------- */
+.hero h1 { max-width: 13ch; font-size: clamp(2.9rem, 6.8vw, 6.2rem); line-height: 0.98; letter-spacing: -0.045em; }
+.hero h1 em { color: var(--green-light); }
+.hero .lede { max-width: 46ch; margin: 30px 0 40px; font-size: clamp(1.12rem, 1.45vw, 1.32rem); line-height: 1.6; color: rgba(255, 255, 255, 0.86); }
+.hero .lede strong { font-weight: 500; color: #fff; }
+.hero .eyebrow { color: rgba(255, 255, 255, 0.8); }
+/* paper to sky: an eased run of stops so the colour change has no visible edge */
+.section.sky-fade { background: linear-gradient(180deg, var(--paper) 0%, var(--paper) 38%, #f6f6f3 52%, #eef2f3 64%, #e3edf4 78%, #d9e8f4 90%, #d4e6f4 100%); }
+.land { background: linear-gradient(180deg, #d4e6f4 0%, #cce2f3 8%, #bfdbf1 17%, #afd2ee 27%, #9fc9ea 38%, #93c1e8 48%, #8bbce6 58%, #8bbce6 100%); }
+
+/* 55 Softer reveals ------------------------------------------------------------------------- */
+:root { --ease-reveal: cubic-bezier(0.16, 0.84, 0.3, 1); }
+.js .reveal { translate: 0 18px; transition: opacity 1.3s var(--ease-reveal) var(--d, 0s), translate 1.4s var(--ease-reveal) var(--d, 0s), box-shadow 0.6s var(--ease), border-color 0.5s var(--ease), background-color 0.5s var(--ease); }
+.js :is(h1, h2).reveal { opacity: 0; transform: none; translate: 0 0.32em; clip-path: none; transition: opacity 1.4s var(--ease-reveal) var(--d, 0s), translate 1.5s var(--ease-reveal) var(--d, 0s); }
+.js :is(h1, h2).reveal.in { opacity: 1; translate: none; }
+/* cards that also reveal: the fade keeps its stagger, the lift on hover answers at once */
+.js :is(.card, .step, .market, .ally, .article-card, .press-card, .fig-card, .thesis > div, .route, .line-card, .stepper li, .market-light .fig, .pm-item).reveal,
+.js .reveal :is(.card, .press-card, .market) { transition: opacity 1.3s var(--ease-reveal) var(--d, 0s), translate 0.7s var(--ease), box-shadow 0.5s var(--ease), border-color 0.5s var(--ease), background-color 0.5s var(--ease); }
+.press-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 1200px) and (min-width: 861px) { .press-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.press-4 .press-card .ttl { font-size: clamp(1.05rem, 1.3vw, 1.2rem); }
+
+/* 56 Supporting text sizes ----------------------------------------------------------------- */
+/* Supporting text sits one clear step below body copy, never so small it reads as an afterthought. */
+.sec-label { font-size: 0.74rem; }
+.src { font-size: 0.8rem; max-width: 46ch; }
+.fineprint, p.note, .press + p.note { font-size: 0.875rem; }
+.pc-chip { font-size: 0.95rem; }
+.pc-read { font-size: 0.85rem; }
+.photo figcaption, .hs-card figcaption small, .story-media figcaption small { font-size: 0.7rem; }
+.hs-card figcaption, .story-media figcaption { font-size: 0.95rem; }
+.card .k, .k, .tag, .supply-contact .k, .m-head, .eyebrow { font-size: 0.7rem; }
+.fig .l { font-size: 1rem; }
+.c-axis span { font-size: 0.85rem; } .c-axis small { font-size: 0.78rem; }
+.st-l, .w-key li { font-size: 0.92rem; }
+.s-axis span, .s-tick em { font-size: 0.78rem; }
+.stepper p, .market p, .m-group .market p { font-size: 0.97rem; }
+.cap, .proof .cap { font-size: 0.85rem; }
+.pm-item .nm { font-size: 0.66rem; }
+.disclaimer { font-size: 0.82rem; }
+.site-footer .legal { font-size: 0.82rem; }
+.made-by { font-size: 0.66rem; }
+
+/* 57 Next chapter arrow ------------------------------------------------------------------- */
+/* The circle fills from the left while one arrow leaves to the right and its twin slides in. */
+.next-up .go { position: relative; overflow: hidden; isolation: isolate; border: 1px solid var(--line-2); background: #fff; color: var(--ink); translate: none !important; }
+.next-up .go::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: 50%; background: var(--navy); transform: scale(0); transition: transform 0.6s var(--ease); }
+.next-up .go > span { position: absolute; inset: 0; display: grid; place-items: center; transition: transform 0.6s var(--ease), opacity 0.45s var(--ease); }
+.next-up .go .go-b { transform: translateX(-120%); opacity: 0; }
+.next-up a:hover .go { color: #fff; border-color: var(--navy); background: #fff; }
+.next-up a:hover .go::before { transform: scale(1); }
+.next-up a:hover .go .go-a { transform: translateX(120%); opacity: 0; }
+.next-up a:hover .go .go-b { transform: none; opacity: 1; }
+.next-up a:hover .go svg { animation: none; }
+.next-up .go svg { width: 22px; height: 22px; }
+
+/* 58 Footer base -------------------------------------------------------------------------- */
+.f-bottom { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: clamp(28px, 5vw, 80px); align-items: start; margin-top: clamp(32px, 4vw, 48px); }
+.f-bottom .disclaimer { max-width: 78ch; margin: 0; line-height: 1.7; }
+.f-bottom .made-by { margin: 0; padding: 14px 18px; border: 1px solid rgba(255, 255, 255, 0.12); border-top: 1px solid rgba(255, 255, 255, 0.12); border-radius: 12px; flex-direction: column; align-items: flex-start; gap: 10px; transition: border-color 0.4s var(--ease), background-color 0.4s var(--ease), color 0.4s var(--ease); }
+.f-bottom .made-by img { height: 34px; }
+.f-bottom .made-by:hover { border-color: rgba(255, 255, 255, 0.28); background: rgba(255, 255, 255, 0.04); }
+.site-footer .legal { margin-top: 28px; padding-top: 22px; border-top: 1px solid rgba(255, 255, 255, 0.08); }
+@media (max-width: 860px) { .f-bottom { grid-template-columns: minmax(0, 1fr); } .f-bottom .made-by { flex-direction: row; align-items: center; } }
+
+/* 59 Numbered rows as gradient panels (Flagship 05, Market 07) ------------------------------ */
+.unlock { display: grid; gap: clamp(10px, 1.2vw, 14px); border-top: 0; }
+.unlock li { position: relative; isolation: isolate; overflow: hidden; margin: 0; padding: clamp(26px, 3vw, 40px) clamp(22px, 3vw, 44px); border: 0; border-radius: calc(var(--card-r) + 2px); background: linear-gradient(110deg, #ffffff 0%, #fbfaf6 55%, #f2f6f9 100%); box-shadow: 0 1px 2px rgba(3, 26, 49, 0.03), 0 18px 40px -32px rgba(3, 26, 49, 0.25); }
+.unlock li::before { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(600px 240px at 100% 0%, rgba(26, 143, 224, 0.16), transparent 70%), radial-gradient(520px 220px at 0% 100%, rgba(109, 181, 42, 0.14), transparent 70%); opacity: 0; transition: opacity 0.7s var(--ease); }
+.unlock li::after { display: none !important; }
+@media (hover: hover) { .unlock li:hover { background: linear-gradient(110deg, #ffffff 0%, #fbfaf6 55%, #f2f6f9 100%); scale: none; translate: 0 -3px; box-shadow: 0 2px 6px rgba(3, 26, 49, 0.04), 0 30px 60px -36px rgba(0, 73, 140, 0.4); } .unlock li:hover::before { opacity: 1; } }
+.unlock li .n { font: 300 clamp(1.6rem, 2.4vw, 2.2rem)/1 var(--display); letter-spacing: -0.03em; background: linear-gradient(135deg, var(--blue), var(--green)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.unlock li:hover .n { color: transparent; }
+
+/* 60 Big type strip into a dark chapter --------------------------------------------------- */
+/* When the strip leads straight into a dark section, it becomes that section's opening band:
+   one continuous surface, the colour deepening from brand blue into the section's navy. */
+.bigtext { background: var(--grain), radial-gradient(900px 300px at 80% 0%, rgba(95, 178, 238, 0.35), transparent 70%), linear-gradient(180deg, #00498c, #003d78); }
+.bigtext:has(+ .section.navy) { padding-bottom: clamp(56px, 7vw, 96px); background: var(--grain), radial-gradient(900px 300px at 80% 0%, rgba(95, 178, 238, 0.35), transparent 70%), linear-gradient(180deg, #00498c 0%, #033a6e 55%, var(--navy-ink) 100%); }
+.bigtext + .section.navy { margin-top: 0; border-radius: 0; animation: none !important; padding-top: clamp(20px, 3vw, 40px); background-position: 0 0; }
+
+/* 61 Supply: the sales contact card -------------------------------------------------------- */
+.supply-contact { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); align-items: stretch; padding: 0; overflow: hidden; }
+.supply-contact .sc-text { padding: clamp(28px, 3.6vw, 52px); }
+.sc-person { gap: 22px; align-content: center; padding: clamp(28px, 3.6vw, 52px); border-left: 0; background: radial-gradient(420px 260px at 100% 0%, rgba(26, 143, 224, 0.1), transparent 70%), linear-gradient(160deg, #f6f9fb, #eef3f6); }
+.sc-id { display: flex; align-items: center; gap: 16px; }
+.sc-avatar { display: grid; place-items: center; flex: none; width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, var(--navy), var(--blue)); color: #fff; font: 500 1.05rem/1 var(--display); letter-spacing: 0.02em; box-shadow: 0 10px 24px -12px rgba(0, 73, 140, 0.6); }
+.sc-who { margin: 0; font: 400 1.25rem/1.15 var(--display); letter-spacing: -0.015em; }
+.sc-who small { margin-top: 5px; font-size: 0.85rem; }
+.sc-lines { display: grid; gap: 0; margin: 0; border-top: 1px solid var(--line); }
+.sc-lines > div { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: 12px; align-items: baseline; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.sc-lines dt { font: 600 0.7rem/1.3 var(--font); letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3); }
+.sc-lines dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.sc-lines a { color: var(--navy); font-weight: 500; text-decoration: none; transition: color 0.3s var(--ease); }
+.sc-lines a:hover { color: var(--green-ink); }
+.sc-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+@media (max-width: 860px) { .supply-contact { grid-template-columns: minmax(0, 1fr); } .sc-person { border-top: 0; } .sc-lines > div { grid-template-columns: minmax(0, 1fr); gap: 4px; } }
+
+/* 62 Contact routes as article-style cards ------------------------------------------------ */
+.route-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.route-card .ac-title { margin: 0; }
+.route-card .ac-sum { margin: 0; }
+.route-card .det { display: grid; gap: 10px; margin-top: auto; padding-top: 18px; border-top: 1px solid var(--line); }
+.route-card .who { font: 600 0.7rem/1.3 var(--font); letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3); }
+.route-card .clink { font-size: 0.95rem; }
+.route-card .ac-body { flex: 1; }
+.route-card { display: flex; flex-direction: column; }
+@media (max-width: 1000px) and (min-width: 861px) { .route-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* 63 One image fade everywhere ------------------------------------------------------------- */
+/* Every captioned photo uses the same long, eased shade from the bottom, so captions read clearly
+   and no photo shows a visible band where the shade starts. */
+:root { --img-fade: linear-gradient(180deg, rgba(3, 26, 49, 0) 0%, rgba(3, 26, 49, 0) 42%, rgba(3, 26, 49, 0.08) 54%, rgba(3, 26, 49, 0.22) 66%, rgba(3, 26, 49, 0.44) 78%, rgba(3, 26, 49, 0.68) 90%, rgba(3, 26, 49, 0.8) 100%); }
+.photo:has(> figcaption) { position: relative; }
+.photo:has(> figcaption)::after { content: ""; position: absolute; inset: 0; z-index: 1; background: var(--img-fade); pointer-events: none; border-radius: inherit; }
+.photo figcaption { z-index: 2; padding: 48px 24px 20px; text-shadow: 0 1px 12px rgba(3, 16, 30, 0.35); }
+.photo figcaption::before { display: none; }
+.hs-card::after, .story-media figure::after { height: 100%; inset: 0; background: var(--img-fade); }
+
+/* 64 Dark surfaces: brand gradients with a visible film grain ------------------------------ */
+:root {
+  --grain: url("./texture/grain-rich.png") 0 0 / 150px 150px repeat;
+  --dark-a: radial-gradient(1100px 620px at 88% -8%, rgba(26, 143, 224, 0.42), transparent 62%), radial-gradient(900px 560px at -6% 108%, rgba(109, 181, 42, 0.2), transparent 60%), linear-gradient(165deg, #052b55 0%, var(--navy-ink) 48%, var(--navy-deep) 100%);
+  --dark-b: radial-gradient(1000px 600px at 6% -10%, rgba(95, 178, 238, 0.32), transparent 60%), radial-gradient(1000px 620px at 104% 104%, rgba(26, 143, 224, 0.26), transparent 62%), radial-gradient(700px 420px at 60% 120%, rgba(184, 224, 140, 0.12), transparent 70%), linear-gradient(200deg, #04305c 0%, var(--navy-ink) 52%, var(--navy-deep) 100%);
+}
+.section.navy { background: var(--grain), var(--dark-a); }
+.section.navy:nth-of-type(even) { background: var(--grain), var(--dark-b); }
+.hscroll:not(.light) { background: var(--grain), var(--dark-b); }
+.cta-band { background: var(--grain), radial-gradient(700px 420px at 100% 0%, rgba(109, 181, 42, 0.26), transparent 66%), radial-gradient(800px 480px at 0% 100%, rgba(26, 143, 224, 0.34), transparent 66%), linear-gradient(125deg, var(--navy-ink) 0%, #063a6d 60%, #0a4f8f 100%); }
+.distance { background: var(--grain), radial-gradient(600px 320px at 100% 0%, rgba(26, 143, 224, 0.4), transparent 70%), radial-gradient(420px 260px at 0% 100%, rgba(109, 181, 42, 0.18), transparent 70%), linear-gradient(160deg, #052b55, var(--navy-ink)); }
+.site-footer { background: var(--grain), radial-gradient(900px 480px at 100% 0%, rgba(26, 143, 224, 0.22), transparent 62%), radial-gradient(700px 400px at 0% 100%, rgba(109, 181, 42, 0.1), transparent 62%), linear-gradient(180deg, var(--navy-ink), var(--navy-deep)); }
+.float-cta { background: rgba(4, 32, 61, 0.92); }
+.bigtext + .section.navy { background: var(--grain), radial-gradient(1100px 620px at 88% 30%, rgba(26, 143, 224, 0.3), transparent 62%), radial-gradient(900px 560px at -6% 108%, rgba(109, 181, 42, 0.18), transparent 60%), linear-gradient(180deg, var(--navy-ink) 0%, var(--navy-ink) 30%, var(--navy-deep) 100%); }
+
+/* 65 Fewer pills ------------------------------------------------------------------------------ */
+/* Soft rectangles for buttons and hover backgrounds; the round pill is kept only for the header's
+   investor button and the floating invitation. */
+.btn { border-radius: 12px; }
+.nav .btn, .float-cta { border-radius: 999px; }
+.nav a:not(.btn), .subnav a, .clink, .site-footer ul a, .article-hero .eyebrow a, .tabbar a { border-radius: 8px; }
+.sound-toggle { border-radius: 10px; }
+.press-4 .press-card .pub { font-size: clamp(1.05rem, 1.25vw, 1.2rem); }
+.press-4 .pc-foot { flex-direction: column; align-items: flex-start; gap: 6px; }
+.pc-chip, .pc-read { white-space: nowrap; }
+.press-4 .pc-chip { white-space: normal; }
+.section.navy .supply-contact .btn-primary { background: var(--navy); border-color: var(--navy); color: #fff; }
+.section.navy .supply-contact .btn-primary::before { background: var(--navy-ink); }
+.section.navy .supply-contact .btn-line { border-color: var(--line-2); color: var(--ink); }
+.section.navy .supply-contact .btn-line:hover { color: #fff; }
+.route-card .clink { display: inline; }
+.route-card .clink svg { display: inline-block; margin-left: 8px; vertical-align: -1px; }
+.route-card a.clink[href^="mailto:"] span { overflow-wrap: anywhere; }
+
+/* 66 Namibian horizon above the footer ----------------------------------------------------- */
+/* The page ends on the land: our own pale sky continues from the section above, the photograph's
+   sky dissolves into it, and the ground falls away into the footer's navy. */
+.horizon { position: relative; overflow: hidden; height: clamp(220px, 30vw, 480px); margin-bottom: -1px; background: linear-gradient(180deg, #f3f0e9 0%, #ece9e1 18%, #dde7ee 42%, #c4dbee 70%, #b3d0ea 100%); }
+.hz-img { position: absolute; inset: -6% 0 0 0; }
+.hz-img img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 62%; -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.25) 22%, rgba(0, 0, 0, 0.75) 40%, #000 55%); mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.25) 22%, rgba(0, 0, 0, 0.75) 40%, #000 55%); }
+.horizon::after { content: ""; position: absolute; inset: auto 0 0 0; height: 46%; background: linear-gradient(180deg, rgba(4, 32, 61, 0) 0%, rgba(4, 32, 61, 0.35) 45%, rgba(4, 32, 61, 0.85) 82%, var(--navy-ink) 100%); pointer-events: none; }
+.horizon.land-quiver-dusk { background: linear-gradient(180deg, #f3f0e9 0%, #efe3d6 30%, #e8b98f 70%, #d98a4c 100%); }
+.horizon.land-quiver-dusk .hz-img img { object-position: 50% 70%; }
+.horizon.land-plains { background: linear-gradient(180deg, #f3f0e9 0%, #f1ede4 40%, #f0ead9 100%); }
+.horizon.land-deadvlei .hz-img img { object-position: 50% 80%; }
+.next-up { border-bottom: 0; }
+.site-footer { background: var(--grain), radial-gradient(900px 480px at 100% 0%, rgba(26, 143, 224, 0.2), transparent 62%), radial-gradient(700px 400px at 0% 100%, rgba(109, 181, 42, 0.1), transparent 62%), linear-gradient(180deg, var(--navy-ink) 0%, var(--navy-deep) 100%); }
+/* the footer picks up exactly where the horizon's shade ends */
+.site-footer { background: var(--grain), radial-gradient(900px 520px at 100% 70%, rgba(26, 143, 224, 0.16), transparent 62%), radial-gradient(700px 400px at 0% 100%, rgba(109, 181, 42, 0.1), transparent 62%), linear-gradient(180deg, var(--navy-ink) 0%, var(--navy-ink) 18%, var(--navy-deep) 100%); }
+.horizon::after { background: linear-gradient(180deg, rgba(4, 32, 61, 0) 0%, rgba(4, 32, 61, 0.3) 40%, rgba(4, 32, 61, 0.8) 78%, var(--navy-ink) 100%), var(--grain); background-blend-mode: normal; }
