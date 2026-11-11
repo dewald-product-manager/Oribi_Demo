@@ -2398,7 +2398,7 @@ main#main { animation: page-in 0.7s var(--ease) both; }
 
 /* 75. Water in the header, a garden behind the lines, dark article-style cards for markets and partners */
 /* header: a faint band of moving water, only once the header has its own background */
-.site-header::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: url("./texture/water.webp") center 40% / cover no-repeat; opacity: 0; mix-blend-mode: multiply; transition: opacity 0.6s var(--ease); }
+.site-header::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: url("./texture/liquid.webp") center 45% / auto 220% repeat-x; opacity: 0; mix-blend-mode: multiply; transition: opacity 0.6s var(--ease); }
 .site-header { isolation: isolate; }
 :is(.site-header.is-solid, .site-header.on-light, .site-header.menu-open)::before { opacity: 0.1; }
 
@@ -2543,3 +2543,7 @@ html { scrollbar-color: var(--navy) rgba(4, 32, 61, 0.06); }
   .lines-garden .lc-list li:hover { translate: none; transform: translateY(-3px) scale(1.09); color: var(--navy); text-shadow: 0 6px 14px rgba(3, 26, 49, 0.12); }
   .lines-garden .lc-list li:hover::before { transform: scale(1.25) rotate(-10deg); }
 }
+
+/* 83. Header texture: the liquid pattern in place of the water photograph */
+.site-header::before { background: url("./texture/liquid.webp") center 45% / auto 220% repeat-x; }
+:is(.site-header.is-solid, .site-header.on-light, .site-header.menu-open)::before { opacity: 0.38; mix-blend-mode: soft-light; }
