@@ -2692,3 +2692,13 @@ html { scrollbar-color: var(--navy) rgba(4, 32, 61, 0.06); }
 @media (max-width: 860px) { .rg-row { background: linear-gradient(160deg, rgba(255, 255, 255, 0.16), rgba(8, 28, 16, 0.34)); } }
 .lines-garden .rg-head .ico-chip { border-radius: 14px; background: rgba(255, 255, 255, 0.12); color: #fff; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.35); }
 .lines-garden .rg-head .ico-chip .ico { filter: brightness(0) invert(1); opacity: 0.92; }
+
+/* 94. Floating invitation, inverted: white button, navy type, a solid brand-blue arrow card */
+.float-cta { border: 1px solid rgba(0, 73, 140, 0.12); background: rgba(255, 255, 255, 0.96); -webkit-backdrop-filter: blur(14px) saturate(1.3); backdrop-filter: blur(14px) saturate(1.3); box-shadow: 0 18px 40px -16px rgba(3, 26, 49, 0.4), 0 2px 8px rgba(3, 26, 49, 0.1); }
+.float-cta::before { background: radial-gradient(closest-side, rgba(0, 73, 140, 0.08), transparent); }
+.fc-text, .float-cta:hover .fc-text { color: var(--navy-ink); }
+.fc-text small, .float-cta:hover .fc-text small { color: var(--ink-3); }
+.fc-live, .float-cta:hover .fc-live { background: var(--green); }
+.float-cta .fc-go { background: var(--navy); color: #fff; }
+.float-cta:hover { border-color: rgba(0, 73, 140, 0.24); box-shadow: 0 26px 50px -18px rgba(3, 26, 49, 0.45), 0 2px 8px rgba(3, 26, 49, 0.12); }
+.float-cta:hover .fc-go { background: var(--blue); color: #fff; }
