@@ -3228,3 +3228,5 @@ main#main { position: relative; z-index: 2; }
 /* the produce glass cards sit over bright greenery: a deeper tint keeps their light text clear */
 .rg-row { -webkit-backdrop-filter: blur(10px) saturate(1.5) brightness(0.68); backdrop-filter: blur(10px) saturate(1.5) brightness(0.68); }
 .rg-row::before { background: linear-gradient(118deg, rgba(150, 205, 255, 0.14) 0%, rgba(150, 205, 255, 0.04) 24%, transparent 40%), radial-gradient(60% 55% at 100% 100%, rgba(184, 224, 140, 0.12), transparent 70%), rgba(3, 22, 14, 0.2); }
+/* the menu sheet draws its icons at the tab bar's size and weight */
+@media (max-width: 1040px) { .nav-ico svg { width: 21px; height: 21px; } .nav a[aria-current="page"] .nav-ico svg { stroke-width: 2; } }
