@@ -2752,3 +2752,40 @@ html { scrollbar-color: var(--navy) rgba(4, 32, 61, 0.06); }
     background: linear-gradient(160deg, rgba(120, 190, 255, 0.11), rgba(255, 255, 255, 0.02) 50%, rgba(184, 224, 140, 0.08)) padding-box,
       linear-gradient(150deg, rgba(150, 205, 255, 0.65), rgba(150, 205, 255, 0.1) 40%, rgba(184, 224, 140, 0.5)) border-box; }
 }
+
+/* 99. Phones: swipe rails with a progress bar and soft edges, larger tap targets, a reading-size floor */
+.rail-bar { display: none; }
+@media (max-width: 860px) {
+  .rail, .hs-static .hs-track, .rg-tiles { overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch; scroll-padding-inline: var(--gutter); }
+  .swipe { --fl: 0; --fr: 1;
+    -webkit-mask-image: linear-gradient(90deg, rgba(0, 0, 0, calc(1 - var(--fl) * 0.9)) 0, #000 28px, #000 calc(100% - 36px), rgba(0, 0, 0, calc(1 - var(--fr) * 0.9)) 100%);
+    mask-image: linear-gradient(90deg, rgba(0, 0, 0, calc(1 - var(--fl) * 0.9)) 0, #000 28px, #000 calc(100% - 36px), rgba(0, 0, 0, calc(1 - var(--fr) * 0.9)) 100%); }
+  .rail-bar.on { display: block; position: relative; width: min(132px, 36%); height: 3px; margin: 16px 0 0 var(--gutter); overflow: hidden; border-radius: 3px; background: color-mix(in srgb, currentColor 16%, transparent); }
+  .rail-bar i { position: absolute; top: 0; bottom: 0; left: calc(var(--rx, 0) * 100%); width: calc(var(--rw, 0.3) * 100%); border-radius: inherit; background: currentColor; opacity: 0.8; transition: left 0.12s linear; }
+  .rg-tiles + .rail-bar.on { margin-left: 0; }
+  .hs-static .hs-track + .rail-bar { display: none; }
+  .rail-hint { display: none; }
+  .hs-static .hs-bar { width: calc(100% - 2 * var(--gutter)); margin-top: 18px; }
+  .hs-static .hs-bar i { transition: transform 0.12s linear; }
+  /* tap targets */
+  .subnav a { min-height: 44px; display: inline-flex; align-items: center; }
+  .sound-toggle { min-height: 44px; min-width: 44px; }
+  .sc-lines a { display: inline-flex; align-items: center; min-height: 44px; }
+  .eyebrow a[href$="/resources"] { display: inline-block; padding: 14px 6px; margin: -14px -6px; }
+  /* reading-size floor for small labels */
+  :is(.eyebrow-n, .k, .kv, .by, .role, .tag, .nm, .who, .meta, .st-label, .st-p, .pre, .dist-legend) { font-size: 0.75rem !important; }
+  .site-footer h4, .photo figcaption, .varieties figcaption, .figs figcaption { font-size: 0.75rem; }
+  .viz small, .c-axis small, .w-key small { font-size: 0.72rem; }
+}
+}
+@media (max-width: 860px) {
+  .tabbar a span, .tab-cta span { font-size: 0.69rem !important; }
+  .photo > figcaption, .pc-metric small, .rg-src span, .rg-more span, .ac-meta span, .made-by > span, .hs-hint, .sc-lines dt, .rg-ticks em, .eyebrow { font-size: 0.75rem !important; }
+  .figs figcaption small, .hs-card figcaption small, .story-media figcaption small { font-size: 0.72rem; }
+}
+@media (max-width: 860px) {
+  .hs-static .hs-hint { font-size: 0 !important; }
+  .hs-static .hs-hint::before { content: "Swipe"; font-size: 0.75rem; }
+  /* the tab bar carries the briefing button on phones, so the floating one stands down */
+  .float-cta { display: none !important; }
+}
