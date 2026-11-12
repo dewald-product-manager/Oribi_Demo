@@ -2969,3 +2969,64 @@ html { scrollbar-color: var(--navy) rgba(4, 32, 61, 0.06); }
   /* the tab bar never covers the last lines of a page */
   .site-footer { padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px)); }
 }
+
+/* 108. Home "What is next": featured project panel, and a ladder that draws itself in */
+.next-feature { position: relative; display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 0; margin-top: clamp(36px, 4.6vw, 60px); overflow: hidden; border-radius: var(--card-r);
+  border: 1px solid transparent;
+  background: linear-gradient(150deg, rgba(120, 190, 255, 0.12), rgba(255, 255, 255, 0.03) 45%, rgba(184, 224, 140, 0.08)) padding-box,
+    linear-gradient(140deg, rgba(150, 205, 255, 0.55), rgba(150, 205, 255, 0.08) 45%, rgba(184, 224, 140, 0.45)) border-box;
+  box-shadow: 0 40px 80px -50px rgba(0, 0, 0, 0.6); }
+.nf-body { display: flex; flex-direction: column; gap: 16px; padding: clamp(26px, 3.4vw, 48px); }
+.nf-chip { display: inline-flex; align-items: center; gap: 10px; align-self: flex-start; padding: 7px 14px; border-radius: 999px; background: rgba(184, 224, 140, 0.12); font: 600 0.68rem/1 var(--font); letter-spacing: 0.16em; text-transform: uppercase; color: var(--green-light); }
+.nf-chip i { width: 7px; height: 7px; border-radius: 50%; background: var(--green-light); box-shadow: 0 0 0 0 rgba(184, 224, 140, 0.6); animation: nf-pulse 2.4s var(--ease) infinite; }
+@keyframes nf-pulse { 0% { box-shadow: 0 0 0 0 rgba(184, 224, 140, 0.55); } 70%, 100% { box-shadow: 0 0 0 9px rgba(184, 224, 140, 0); } }
+.next-feature h3 { margin: 4px 0 0; font-size: clamp(1.7rem, 3vw, 2.5rem); font-weight: 300; letter-spacing: -0.025em; line-height: 1.08; color: #fff; }
+.nf-body > p { margin: 0; max-width: 46ch; color: rgba(255, 255, 255, 0.78); }
+.nf-ticks { display: grid; gap: 8px; margin: 4px 0 0; padding: 0; list-style: none; }
+.nf-ticks li { position: relative; padding-left: 28px; font-size: 0.93rem; color: rgba(255, 255, 255, 0.86); }
+.nf-ticks li::before { content: ""; position: absolute; left: 0; top: 0.2em; width: 18px; height: 18px; border-radius: 50%; background: rgba(184, 224, 140, 0.16) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M5 9.2l2.6 2.6L13 6.4' fill='none' stroke='%23b8e08c' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 18px no-repeat; }
+.nf-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 10px; }
+.nf-stat { position: relative; display: flex; flex-direction: column; justify-content: center; gap: 10px; padding: clamp(26px, 3.4vw, 48px); border-left: 1px solid rgba(255, 255, 255, 0.1); background: radial-gradient(120% 90% at 100% 0%, rgba(120, 190, 255, 0.16), transparent 60%), rgba(2, 20, 40, 0.35); }
+.nf-k { font: 600 0.68rem/1 var(--font); letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255, 255, 255, 0.6); }
+.nf-v { display: flex; align-items: baseline; gap: 6px; font-size: clamp(3.4rem, 6.4vw, 5.6rem); font-weight: 200; line-height: 0.95; letter-spacing: -0.04em; color: #fff; }
+.nf-v small { font-size: 0.32em; font-weight: 400; letter-spacing: 0; color: var(--green-light); }
+.nf-l { max-width: 28ch; color: rgba(255, 255, 255, 0.78); }
+.nf-bar { position: relative; height: 8px; margin-top: 8px; overflow: hidden; border-radius: 8px; background: rgba(184, 224, 140, 0.25); }
+.nf-bar i { position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(90deg, #4a8fd6, #78beff); transform: scaleX(0); transform-origin: left; transition: transform 1.6s var(--ease) 0.3s; }
+.next-feature.in .nf-bar i { transform: scaleX(1); }
+.nf-scale { display: flex; justify-content: space-between; font-size: 0.74rem; color: rgba(255, 255, 255, 0.6); }
+.nf-stat .src { margin-top: 6px; }
+.ladder-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; margin-top: clamp(56px, 7vw, 96px); padding-bottom: 4px; }
+.ladder-head .k { font: 600 0.72rem/1 var(--font); letter-spacing: 0.18em; text-transform: uppercase; color: var(--green-light); }
+.ladder-head .lh-note { font-size: 0.9rem; color: rgba(255, 255, 255, 0.6); }
+.ladder-head + .ladder { margin-top: 26px; }
+
+/* the ladder draws itself: the line fills, then each stage lights in turn */
+.js .ladder.reveal { opacity: 1; translate: none; }
+.ladder::after { content: ""; position: absolute; top: 6px; left: 7px; right: 7px; height: 2px; border-radius: 2px; background: rgba(255, 255, 255, 0.34); transform: scaleX(0); transform-origin: left; transition: transform 1.8s var(--ease) 0.15s; }
+.section:not(.navy) .ladder::after { background: rgba(4, 32, 61, 0.28); }
+.ladder::before { opacity: 0.45; }
+.ladder.in::after { transform: scaleX(1); }
+.js .ladder li { opacity: 0.25; translate: 0 10px; transition: opacity 0.7s var(--ease) calc(0.25s + var(--i) * 0.22s), translate 0.7s var(--ease) calc(0.25s + var(--i) * 0.22s); }
+.js .ladder.in li { opacity: 1; translate: none; }
+.js .ladder .ld-dot { scale: 0.4; transition: scale 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) calc(0.3s + var(--i) * 0.22s), background-color 0.4s, box-shadow 0.6s var(--ease) calc(0.3s + var(--i) * 0.22s); }
+.js .ladder.in .ld-dot { scale: 1; }
+.ladder li.has .ld-dot::after { content: ""; position: absolute; inset: -2px; border-radius: 50%; border: 2px solid currentColor; opacity: 0; color: #78beff; }
+.ladder li.has:last-child .ld-dot::after { color: var(--green-light); }
+.ladder.in li.has .ld-dot::after { animation: ld-ping 2.6s var(--ease) calc(1.6s + var(--i) * 0.22s) infinite; }
+@keyframes ld-ping { 0% { opacity: 0.8; scale: 1; } 70%, 100% { opacity: 0; scale: 2.4; } }
+.js .ladder .ld-proj { opacity: 0; translate: 0 12px; transition: opacity 0.7s var(--ease) calc(0.6s + var(--i) * 0.22s), translate 0.7s var(--ease) calc(0.6s + var(--i) * 0.22s), box-shadow 0.4s var(--ease); }
+.js .ladder.in .ld-proj { opacity: 1; translate: none; }
+@media (max-width: 860px) {
+  .next-feature { grid-template-columns: minmax(0, 1fr); }
+  .nf-stat { border-left: 0; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+  .nf-actions .btn { flex: 1 1 100%; justify-content: center; }
+  .ladder::after { top: 6px; bottom: 6px; left: 6px; right: auto; width: 2px; height: auto; transform: scaleY(0); transform-origin: top; }
+  .ladder.in::after { transform: scaleY(1); }
+  .ladder-head { flex-direction: column; align-items: flex-start; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ladder::after, .js .ladder li, .js .ladder .ld-dot, .js .ladder .ld-proj, .nf-bar i { transition: none; transform: none; scale: 1; opacity: 1; translate: none; }
+  .nf-chip i, .ladder.in li.has .ld-dot::after { animation: none; }
+}
+.ladder li { z-index: 1; } .ladder::after { z-index: 0; }
