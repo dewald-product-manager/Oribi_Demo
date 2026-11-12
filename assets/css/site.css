@@ -3130,3 +3130,43 @@ main#main { position: relative; z-index: 2; }
   .site-footer .f-brand p { font-size: 0.98rem; }
 }
 @media (prefers-reduced-motion: reduce) { .tab-cta-dot::after { animation: none; } }
+
+/* 112. Phone tab bar, refined: a notched bar with the Oribi mark seated in the notch, centred and
+   width-capped, active tab marked by a small dot, and the bar tucks away while reading downwards. */
+@media (max-width: 860px) {
+  .tabbar {
+    left: 50%; right: auto; width: min(calc(100% - 24px), 440px); translate: -50% 0;
+    bottom: calc(10px + env(safe-area-inset-bottom)); height: 60px; padding: 0 4px;
+    border: 0; border-radius: 0; background: none; box-shadow: none;
+    -webkit-backdrop-filter: none; backdrop-filter: none;
+    filter: drop-shadow(0 14px 22px rgba(3, 26, 49, 0.22)) drop-shadow(0 2px 4px rgba(3, 26, 49, 0.08));
+    transition: translate 0.55s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s var(--ease);
+  }
+  .tabbar::before {
+    content: ""; position: absolute; inset: 0; z-index: -1; border-radius: 22px;
+    background: linear-gradient(180deg, #ffffff, #f7f4ee);
+    -webkit-mask: radial-gradient(circle 36px at 50% -2px, transparent 35px, #000 36px); mask: radial-gradient(circle 36px at 50% -2px, transparent 35px, #000 36px);
+  }
+  .tabbar::after { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: 22px; box-shadow: inset 0 0 0 1px rgba(4, 32, 61, 0.06);
+    -webkit-mask: radial-gradient(circle 36px at 50% -2px, transparent 35px, #000 36px); mask: radial-gradient(circle 36px at 50% -2px, transparent 35px, #000 36px); pointer-events: none; }
+  .tabbar.tb-hide { translate: -50% calc(100% + 24px + env(safe-area-inset-bottom)); }
+  .tabbar a, .tabbar button { gap: 4px; padding-top: 2px; color: #67737f; }
+  .tabbar a:not(.tab-cta)::before, .tabbar button::before { display: none; }
+  .tabbar a:not(.tab-cta)::after { content: ""; position: absolute; bottom: 6px; left: 50%; width: 4px; height: 4px; margin-left: -2px; border-radius: 50%; background: var(--green); opacity: 0; scale: 0; transition: opacity 0.3s, scale 0.45s cubic-bezier(0.34, 1.56, 0.64, 1); }
+  .tabbar a[aria-current="page"]:not(.tab-cta) { color: var(--navy); }
+  .tabbar a[aria-current="page"]:not(.tab-cta)::after { opacity: 1; scale: 1; }
+  .tabbar a[aria-current="page"] svg { stroke-width: 2.1; }
+  .tabbar svg { width: 22px; height: 22px; }
+  .tabbar a span:last-child, .tabbar button span:last-child { font-size: 0.66rem !important; letter-spacing: 0.01em; }
+  .tabbar .tab-cta { justify-content: flex-end; padding-bottom: 9px; gap: 5px; }
+  .tab-cta-dot { position: absolute; top: -27px; left: 50%; width: 54px; height: 54px; margin: 0 0 0 -27px; box-shadow: 0 10px 18px -8px rgba(0, 73, 140, 0.5); }
+  .tab-cta-dot img { width: 30px; height: 30px; }
+  .tab-cta[aria-current="page"] .tab-cta-dot { box-shadow: 0 10px 18px -8px rgba(109, 181, 42, 0.55); }
+}
+@media (max-width: 860px) {
+  .tabbar { filter: drop-shadow(0 12px 18px rgba(3, 26, 49, 0.16)) drop-shadow(0 1px 3px rgba(3, 26, 49, 0.08)); }
+  .tab-cta-dot, .tab-cta[aria-current="page"] .tab-cta-dot { box-shadow: none; }
+  .tab-cta-dot::after { inset: -4px; animation-name: tab-breathe2; }
+  @keyframes tab-breathe2 { 0% { box-shadow: 0 0 0 0 rgba(109, 181, 42, 0.28); } 70%, 100% { box-shadow: 0 0 0 9px rgba(109, 181, 42, 0); } }
+  .tabbar .tab-cta span:last-child { color: var(--navy); }
+}
