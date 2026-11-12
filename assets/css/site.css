@@ -3075,7 +3075,7 @@ html { scrollbar-color: var(--navy) rgba(4, 32, 61, 0.06); }
 .farm-strips.live { touch-action: pan-y; cursor: grab; user-select: none; -webkit-user-select: none; }
 .farm-strips.live.dragging { cursor: grabbing; }
 .farm-strips img { -webkit-user-drag: none; pointer-events: none; }
-.farm-strips.live .fs { --f: 0.5; scale: calc(0.86 + 0.16 * var(--f)); transform: skewX(var(--lean, 0deg)); filter: saturate(calc(0.7 + 0.35 * var(--f))) brightness(calc(0.82 + 0.2 * var(--f))); transition: translate 0.6s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.6s, clip-path 1s cubic-bezier(0.22, 1, 0.36, 1) calc(var(--i) * 0.05s); }
+.farm-strips.live .fs { --f: 0.5; scale: calc(0.86 + 0.16 * var(--f)); transform: skewX(var(--lean, 0deg)); backface-visibility: hidden; transition: translate 0.6s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.6s, clip-path 1s cubic-bezier(0.22, 1, 0.36, 1) calc(var(--i) * 0.05s); }
 .farm-strips.live .fs img { scale: calc(1.12 - 0.1 * var(--f)); transform: skewX(calc(var(--lean, 0deg) * -1)); transition: none; }
 @media (hover: hover) {
   .farm-strips.live .fs-track:hover .fs { filter: saturate(calc(0.55 + 0.3 * var(--f))) brightness(calc(0.72 + 0.18 * var(--f))); }
@@ -3169,4 +3169,15 @@ main#main { position: relative; z-index: 2; }
   .tab-cta-dot::after { inset: -4px; animation-name: tab-breathe2; }
   @keyframes tab-breathe2 { 0% { box-shadow: 0 0 0 0 rgba(109, 181, 42, 0.28); } 70%, 100% { box-shadow: 0 0 0 9px rgba(109, 181, 42, 0); } }
   .tabbar .tab-cta span:last-child { color: var(--navy); }
+}
+
+/* 113. Strip carousel: smoother motion. Dimming away from the centre is an overlay's opacity (composited)
+   instead of a per-frame filter (repainted); the track and tiles sit on their own layers. */
+.farm-strips.live .fs-track { backface-visibility: hidden; transform: translate3d(0, 0, 0); }
+.farm-strips.live .fs::before { content: ""; position: absolute; inset: 0; z-index: 1; border-radius: inherit; background: #0b2440; opacity: calc(0.3 * (1 - var(--f))); pointer-events: none; }
+.farm-strips.live .fs img { will-change: auto; }
+@media (hover: hover) {
+  .farm-strips.live .fs-track:hover .fs { filter: none; }
+  .farm-strips.live .fs-track:hover .fs::before { opacity: calc(0.18 + 0.3 * (1 - var(--f))); transition: opacity 0.4s; }
+  .farm-strips.live .fs-track .fs:hover::before { opacity: 0; }
 }
