@@ -3030,3 +3030,12 @@ html { scrollbar-color: var(--navy) rgba(4, 32, 61, 0.06); }
   .nf-chip i, .ladder.in li.has .ld-dot::after { animation: none; }
 }
 .ladder li { z-index: 1; } .ladder::after { z-index: 0; }
+
+/* 109. Catalogue download */
+.dl-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; margin-top: 26px; }
+.dl-btn { gap: 12px; }
+.dl-ico { display: grid; place-items: center; width: 26px; height: 26px; margin-left: -6px; border-radius: 50%; background: rgba(255, 255, 255, 0.16); }
+.dl-btn:hover .dl-ico svg { animation: dl-drop 0.7s var(--ease); }
+@keyframes dl-drop { 0% { translate: 0 0; } 45% { translate: 0 4px; opacity: 0.3; } 46% { translate: 0 -5px; } 100% { translate: 0 0; opacity: 1; } }
+.dl-meta { font-size: 0.82rem; color: var(--ink-3); }
+@media (max-width: 860px) { .dl-btn { flex: 1 1 100%; justify-content: center; } }
