@@ -3090,3 +3090,43 @@ html { scrollbar-color: var(--navy) rgba(4, 32, 61, 0.06); }
 @media (min-width: 861px) { .site-footer { padding-top: calc(64px + (clamp(96px, 8.4vw, 132px) + 22px) / 2); } }
 @media (max-width: 860px) { .site-footer { padding-top: calc(48px + (86px + 18px) / 2); } .farm-strips { --fs-over: calc((86px + 18px) / 2); } }
 main#main { position: relative; z-index: 2; }
+
+/* 111. Phone tab bar: frosted glass, a soft pill behind the current tab, and the Oribi mark raised in
+   the centre as the way to partner with us. Phone footer in two link columns. */
+@media (max-width: 860px) {
+  .tabbar {
+    height: 64px; padding: 0 6px; border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(246, 243, 237, 0.78));
+    -webkit-backdrop-filter: blur(18px) saturate(1.6); backdrop-filter: blur(18px) saturate(1.6);
+    box-shadow: 0 20px 44px -18px rgba(3, 26, 49, 0.45), 0 2px 8px rgba(3, 26, 49, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  }
+  .tabbar a, .tabbar button { position: relative; gap: 5px; color: #5d6b78; transition: color 0.35s var(--ease); }
+  .tabbar a:not(.tab-cta)::before, .tabbar button::before { content: ""; position: absolute; top: 8px; left: 50%; width: 46px; height: 30px; margin-left: -23px; border-radius: 999px; background: linear-gradient(135deg, rgba(0, 73, 140, 0.1), rgba(109, 181, 42, 0.14)); opacity: 0; scale: 0.6; transition: opacity 0.4s var(--ease), scale 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); z-index: -1; }
+  .tabbar a[aria-current="page"]:not(.tab-cta) { color: var(--navy); }
+  .tabbar a[aria-current="page"]:not(.tab-cta)::before { opacity: 1; scale: 1; }
+  .tabbar a[aria-current="page"] span:last-child { font-weight: 600; }
+  .tabbar svg { width: 21px; height: 21px; }
+  .tabbar .tab-cta { color: var(--navy); font-weight: 600; gap: 3px; }
+  .tab-cta-dot {
+    position: relative; display: grid; place-items: center; width: 50px; height: 50px; margin-top: -24px; border-radius: 50%;
+    background: linear-gradient(#fff, #fff) padding-box, linear-gradient(140deg, #1a8fe0, #00498c 45%, #6db52a) border-box; border: 2.5px solid transparent;
+    box-shadow: 0 12px 22px -8px rgba(0, 73, 140, 0.55), 0 0 0 5px rgba(255, 255, 255, 0.85);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s var(--ease);
+  }
+  .tab-cta-dot img { width: 28px; height: 28px; transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); }
+  .tab-cta-dot::after { content: ""; position: absolute; inset: -6px; border-radius: 50%; box-shadow: 0 0 0 0 rgba(26, 143, 224, 0.35); animation: tab-breathe 3.2s var(--ease) infinite; pointer-events: none; }
+  @keyframes tab-breathe { 0% { box-shadow: 0 0 0 0 rgba(26, 143, 224, 0.32); } 70%, 100% { box-shadow: 0 0 0 12px rgba(26, 143, 224, 0); } }
+  .tab-cta:active .tab-cta-dot { transform: scale(0.92); }
+  .tab-cta:active .tab-cta-dot img { transform: rotate(-12deg) scale(0.92); }
+  .tab-cta[aria-current="page"] .tab-cta-dot { box-shadow: 0 12px 22px -8px rgba(109, 181, 42, 0.6), 0 0 0 5px rgba(255, 255, 255, 0.9); }
+  .tabbar .tab-cta span:last-child { font-size: 0.69rem; }
+
+  /* footer: brand on top, the two link lists side by side, the office below */
+  .site-footer .top { grid-template-columns: 1fr 1fr; gap: 34px 20px; }
+  .site-footer .f-brand, .site-footer .top > div:last-child { grid-column: 1 / -1; }
+  .site-footer ul { gap: 4px; }
+  .site-footer ul a { padding: 8px 0; margin: 0; font-size: 0.98rem; }
+  .site-footer .f-brand p { font-size: 0.98rem; }
+}
+@media (prefers-reduced-motion: reduce) { .tab-cta-dot::after { animation: none; } }
