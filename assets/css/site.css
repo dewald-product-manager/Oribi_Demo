@@ -2931,3 +2931,41 @@ html { scrollbar-color: var(--navy) rgba(4, 32, 61, 0.06); }
 .gap-card h3 { margin: 6px 0 0; font-size: 1.15rem; font-weight: 400; }
 .gap-card p { margin: 0; }
 .gap-card .src { margin-top: auto; padding-top: 8px; }
+
+/* 107. Phone polish: ladder on dark sections, timeline dots centred on the line, calmer motion,
+   one card per swipe */
+.section.navy .ladder::before { background: linear-gradient(90deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.18) 30%, rgba(120, 190, 255, 0.7) 45%, rgba(255, 255, 255, 0.18) 55%, rgba(255, 255, 255, 0.18) 80%, rgba(184, 224, 140, 0.8)); }
+.section.navy .ld-dot { background: var(--navy-ink); box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.35); }
+.section.navy .ladder li.has .ld-dot { background: #78beff; box-shadow: 0 0 0 2px #78beff, 0 0 0 7px rgba(120, 190, 255, 0.18); }
+.section.navy .ladder li.has:last-child .ld-dot { background: var(--green-light); box-shadow: 0 0 0 2px var(--green-light), 0 0 0 7px rgba(184, 224, 140, 0.2); }
+.section.navy .ld-n { color: rgba(255, 255, 255, 0.5); }
+.section.navy .ladder h3 { color: rgba(255, 255, 255, 0.72); }
+.section.navy .ladder li.has h3 { color: #fff; }
+.section.navy .ladder p { color: rgba(255, 255, 255, 0.62); }
+.section.navy .ladder li:not(:last-child) .ld-proj { background: rgba(120, 190, 255, 0.16); border: 1px solid rgba(120, 190, 255, 0.4); }
+@media (max-width: 860px) {
+  .section.navy .ladder::before { background: linear-gradient(180deg, rgba(255, 255, 255, 0.18) 30%, rgba(120, 190, 255, 0.7) 45%, rgba(255, 255, 255, 0.18) 55%, rgba(255, 255, 255, 0.18) 80%, rgba(184, 224, 140, 0.8)); }
+  .ladder { gap: 26px; }
+  .ladder li { padding: 0; }
+  .ld-dot { top: 3px; }
+}
+@media (max-width: 1040px) {
+  /* the dot sits on the line: line centre is 7px in from the timeline edge, the card border is 1px */
+  .stepper li::before, .stepper.in li::before { margin: 0 !important; left: calc(-1 * var(--rail, 28px) + 7px - 8px - 1px) !important; }
+}
+@media (max-width: 860px) {
+  .stepper li { opacity: 0.62; translate: 0 6px; }
+  .stepper li.on { opacity: 1; translate: none; }
+  /* shorter, lighter entrances on a phone: less travel, no long clip-path wipes on photos */
+  .js .reveal { translate: 0 16px; transition-duration: 0.7s, 0.7s, 0.5s, 0.5s, 0.4s, 0.4s; }
+  .js .reveal.in { translate: none; }
+  .js :is(h1, h2).reveal { transition-duration: 0.85s; }
+  .js .reveal-img { clip-path: none; opacity: 0; transition: opacity 0.8s var(--ease); }
+  .js .reveal-img.in { opacity: 1; clip-path: none; }
+  .js .reveal-img img, .js .reveal-img.in img, .js .reveal-img.px.in img { transform: none; transition: none; }
+  /* one card per swipe, and a firm stop */
+  .rail > *, .rg-tile, .hs-static .hs-card { scroll-snap-stop: always; }
+  .rail { scroll-behavior: smooth; }
+  /* the tab bar never covers the last lines of a page */
+  .site-footer { padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px)); }
+}
