@@ -3181,3 +3181,50 @@ main#main { position: relative; z-index: 2; }
   .farm-strips.live .fs-track:hover .fs::before { opacity: calc(0.18 + 0.3 * (1 - var(--f))); transition: opacity 0.4s; }
   .farm-strips.live .fs-track .fs:hover::before { opacity: 0; }
 }
+
+/* 114. Phone tab bar without the current-page dot; menu sheet items with icons; the sheet follows a
+   downward drag and closes when let go far or fast enough. */
+.tabbar a[aria-current="page"]:not(.tab-cta)::after, .tabbar a:not(.tab-cta)::after { display: none; }
+.nav-ico, .nav-go { display: none; }
+@media (max-width: 1040px) {
+  .nav a:not(.btn) { display: flex; align-items: center; gap: 14px; }
+  .nav-label { flex: 1; min-width: 0; }
+  .nav-ico { display: grid; place-items: center; flex: 0 0 auto; width: 40px; height: 40px; border-radius: 12px; background: rgba(0, 73, 140, 0.07); color: var(--navy); transition: background-color 0.3s, color 0.3s; }
+  .nav-go { display: block; flex: 0 0 auto; color: var(--muted, #8a8f96); opacity: 0.6; transition: translate 0.3s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s; }
+  .nav a[aria-current="page"] .nav-ico { background: var(--navy); color: #fff; }
+  .nav a:not(.btn):active .nav-go { translate: 3px 0; opacity: 1; }
+  .nav.dragging { transition: none !important; }
+  .menu-lock body::after { opacity: calc(1 - var(--sheet-drag, 0)); animation-fill-mode: backwards; }
+  .nav.dragging::before { background: var(--navy); opacity: 0.35; }
+}
+@media (max-width: 860px) {
+  .nav a:not(.btn) { padding-top: 11px; padding-bottom: 11px; font-size: 1.3rem; }
+}
+
+/* 115. Strip carousel, lighter per frame: the reel is one composited layer that moves and leans as a
+   whole; each tile is its own layer scaled by the script; no per-frame filters, dimming or clipping. */
+.js .farm-strips.live .fs-track { will-change: transform; transform-origin: 50% 50%; }
+.farm-strips.live .fs { scale: none; transform: scale(0.88); will-change: transform; transition: translate 0.6s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.6s, clip-path 1s cubic-bezier(0.22, 1, 0.36, 1) calc(var(--i) * 0.05s); }
+.farm-strips.live .fs img { scale: 1.04; transform: none; }
+.farm-strips.live .fs::before { display: none; }
+.js .farm-strips.settled .fs { clip-path: none; }
+@media (hover: hover) {
+  .farm-strips.live .fs-track:hover .fs { filter: saturate(0.8) brightness(0.92); transition: translate 0.6s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.6s, filter 0.4s; }
+  .farm-strips.live .fs-track .fs:hover { filter: none; }
+  .farm-strips.live .fs:hover img { scale: 1.12; transition: scale 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
+}
+
+/* 116. Legibility: no text should fade into what is behind it. Secondary text is a touch darker on
+   paper and a touch brighter on navy; light text over photos and glass cards gets a firmer base. */
+:root { --ink-3: rgba(14, 34, 53, 0.68); --on-dark-3: rgba(255, 255, 255, 0.7); }
+.section.navy .sec-label, .band .sec-label, .hscroll .sec-label, .cta-band .sec-label { color: rgba(255, 255, 255, 0.82); }
+.pwall .nm { color: var(--ink-2); opacity: 1; }
+.photo figcaption::before { display: block; background: linear-gradient(transparent, rgba(3, 26, 49, 0.45) 45%, rgba(3, 26, 49, 0.82)); }
+.photo figcaption { text-shadow: 0 1px 8px rgba(3, 16, 30, 0.6); }
+@media (max-width: 620px) { .prod-grid .photo figcaption { font-size: 0.62rem; } }
+.rg-pack { color: #dcf2c4; }
+.rg-note, .rg-why { color: rgba(255, 255, 255, 0.9); }
+.nf-chip { background: rgba(3, 26, 49, 0.42); color: #d9f0bf; }
+/* the produce glass cards sit over bright greenery: a deeper tint keeps their light text clear */
+.rg-row { -webkit-backdrop-filter: blur(10px) saturate(1.5) brightness(0.68); backdrop-filter: blur(10px) saturate(1.5) brightness(0.68); }
+.rg-row::before { background: linear-gradient(118deg, rgba(150, 205, 255, 0.14) 0%, rgba(150, 205, 255, 0.04) 24%, transparent 40%), radial-gradient(60% 55% at 100% 100%, rgba(184, 224, 140, 0.12), transparent 70%), rgba(3, 22, 14, 0.2); }
